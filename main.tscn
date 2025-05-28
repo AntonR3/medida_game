@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnek330uw10vb"]
+
+[ext_resource type="Texture2D" uid="uid://ls7kegbv8e7c" path="res://5671432_2945838.svg" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dsudgcw1o51ww" path="res://camera_2d.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://dhqkkyfg6pbur" path="res://canvas_layer.gd" id="3_h2yge"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="map" type="Sprite2D" parent="Node2D"]
+position = Vector2(1161, 771)
+scale = Vector2(0.1548, 0.1548)
+texture = ExtResource("1_0xm2m")
+
+[node name="Camera2D2" type="Camera2D" parent="Node2D" node_paths=PackedStringArray("map_sprite")]
+position = Vector2(1186, 697)
+scale = Vector2(5.1801, 3.27874)
+script = ExtResource("2_h2yge")
+map_sprite = NodePath("../map")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_h2yge")

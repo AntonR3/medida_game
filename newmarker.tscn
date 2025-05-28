@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dejmxcwm76bex"]
+
+[ext_resource type="Script" uid="uid://qdcf0148qp2h" path="res://newmarker.gd" id="1_na3od"]
+[ext_resource type="Texture2D" uid="uid://b58gcu31x7pxb" path="res://marker.png" id="2_wuuyt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sefam"]
+radius = 13.0
+height = 40.0
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 190.0
+offset_top = 132.0
+offset_right = 190.0
+offset_bottom = 132.0
+script = ExtResource("1_na3od")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -19)
+shape = SubResource("CapsuleShape2D_sefam")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, -19)
+scale = Vector2(0.10391, 0.10391)
+texture = ExtResource("2_wuuyt")
+
+[node name="begriff" type="Label" parent="."]
+offset_left = -222.0
+offset_right = 222.0
+offset_bottom = 23.0
+text = "Begriff"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
