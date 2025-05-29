@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://ivho25spx00"]
+
+[ext_resource type="Script" uid="uid://bq0rdkluexcwl" path="res://margin_container.gd" id="1_1uojp"]
+[ext_resource type="Texture2D" uid="uid://b58gcu31x7pxb" path="res://marker.png" id="2_ewgtj"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 450.0
+offset_bottom = 140.0
+pivot_offset = Vector2(225, 60)
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_1uojp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.2, 0.2, 0.2, 0.2)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_ewgtj")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+text = "Begriff"

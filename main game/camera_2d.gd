@@ -1,95 +1,73 @@
 extends Camera2D
 
 # Einstellungen
-@export var map_sprite: Sprite2D  # Weise dein Sprite2D hier im Editor zu!
-var zoom_speed := 0.1
-var min_zoom := 0.5
-var max_zoom := 10.0
-var zoom_level := 1.0
-var drag_sensitivity := 1.0
+@export var map_sprite: TextureRect
+const MIN_ZOOM: float = 0.1
+const MAX_ZOOM: float = 5.0
+const ZOOM_RATE: float = 10.0
+const ZOOM_INCREMENT: float = 0.1
 
-# Touch/Drag-Variablen
-var touch_points := {}
-var previous_pinch_distance := 0.0
-var is_dragging := false
+var dragging = false
+
+var _target_zoom: float = 1.0
 
 func _ready() -> void:
-	zoom = Vector2.ONE * zoom_level
+	set_physics_process(false)
+	
+func _physics_process(delta: float) -> void:
+	zoom = lerp(zoom, _target_zoom * Vector2.ONE, ZOOM_RATE * delta)
+	set_physics_process(not is_equal_approx(zoom.x, _target_zoom))
+
 
 func _input(event: InputEvent) -> void:
-	_handle_mouse(event)
-	#_handle_touch(event)
-
-func _handle_mouse(event: InputEvent) -> void:
-	# Mausrad-Zoom
 	if event is InputEventMouseButton:
-		match event.button_index:
-			4:
-				_zoom(1)
-			5:
-				_zoom(-1)
-			1:
-				is_dragging = event.pressed
+		if event.button_index == 5:
+			zoom_in()
+		if event.button_index == 4:
+			zoom_out()
+		if event.double_click:
+			focus_position(get_global_mouse_position())
+		if event.button_index == 1:
+			dragging = event.pressed
+	elif event is InputEventMouseMotion && dragging:
+		position -= event.relative / zoom
 
-	# Maus-Drag
-	elif event is InputEventMouseMotion and is_dragging:
-		position -= event.relative * drag_sensitivity / zoom_level
-		_clamp_camera_position()
+func zoom_in() -> void:
+	_target_zoom = max(_target_zoom - ZOOM_INCREMENT, MIN_ZOOM)
+	set_physics_process(true)
 
-#func _handle_touch(event: InputEvent) -> void:
-	## Touch-Punkte verfolgen
-	#if event is InputEventScreenTouch:
-		#if event.pressed:
-			#touch_points[event.index] = event.position
-		#else:
-			#touch_points.erase(event.index)
-		#previous_pinch_distance = 0.0
-#
-	## Touch-Drag und Pinch-Zoom
-	#elif event is InputEventScreenDrag:
-		#touch_points[event.index] = event.position
-		#
-		## Ein-Finger-Drag
-		#if touch_points.size() == 1:
-			#position -= event.relative * drag_sensitivity / zoom_level
-			#_clamp_camera_position()
-		#
-		## Zwei-Finger-Pinch-Zoom
-		#elif touch_points.size() == 2:
-			#var points := touch_points.values()
-			#var current_distance := points[0].distance_to(points[1])
-			#if previous_pinch_distance != 0.0:
-				#_zoom((current_distance - previous_pinch_distance) * 0.01)
-			#previous_pinch_distance = current_distance
 
-func _zoom(direction: float) -> void:
-	# Zoom-Level anpassen
-	zoom_level = clamp(zoom_level + direction * zoom_speed, min_zoom, max_zoom)
-	zoom = Vector2.ONE * zoom_level
-	_clamp_camera_position()  # Position nach Zoom neu begrenzen
+func zoom_out() -> void:
+	_target_zoom = min(_target_zoom + ZOOM_INCREMENT, MAX_ZOOM)
+	set_physics_process(true)
 
+
+func focus_position(target_position: Vector2) -> void:
+	var _tween = get_tree().create_tween()
+	_tween.tween_property(self, "position", target_position, 0.5).set_trans(Tween.TRANS_EXPO)
+	
+	
 func _clamp_camera_position() -> void:
 	if !map_sprite || !map_sprite.texture:
 		return
 
-	# Berechne die Begrenzungen des Sprites
-	var sprite_global_pos = map_sprite.global_position
-	var sprite_size = map_sprite.texture.get_size() * map_sprite.scale
-	var sprite_rect = Rect2(
-		sprite_global_pos - sprite_size / 2,  # Sprite-Links-Oben
-		sprite_size                            # Sprite-Größe
-	)
+	var map_rect: Rect2 = map_sprite.get_global_rect()
+	
+	var vp_size_px: Vector2 = get_viewport_rect().size
+	var view_size: Vector2 = vp_size_px * zoom
+	var half: Vector2 = view_size * 0.5
 
-	# Sichtbare Bereichsgrenzen der Kamera (abhängig vom Zoom)
-	var viewport_size = get_viewport_rect().size
-	var visible_half_size = viewport_size / (2 * zoom)
+	var min_x = map_rect.position.x + half.x
+	var max_x = map_rect.position.x + map_rect.size.x - half.x
+	var min_y = map_rect.position.y + half.y
+	var max_y = map_rect.position.y + map_rect.size.y - half.y
 
-	# Min/Max-Position der Kamera (Mitte darf nicht über den Rand hinaus)
-	var min_x = sprite_rect.position.x + visible_half_size.x
-	var max_x = sprite_rect.end.x - visible_half_size.x
-	var min_y = sprite_rect.position.y + visible_half_size.y
-	var max_y = sprite_rect.end.y - visible_half_size.y
-
-	# Clamp-Kamera-Position
-	position.x = clamp(position.x, min_x, max_x)
-	position.y = clamp(position.y, min_y, max_y)
+	if max_x <= min_x: 
+		min_x = map_rect.position.x + map_rect.size.x * 0.5
+		max_x = min_x
+	if max_y <= min_y:
+		min_y = map_rect.position.y + map_rect.size.y * 0.5
+		max_y = min_y
+		
+	position.x = clamp(global_position.x, min_x, max_x)
+	position.y = clamp(global_position.y, min_y, max_y)

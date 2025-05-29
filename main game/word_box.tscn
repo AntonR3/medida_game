@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3h4ro6fnsybq"]
-
-[ext_resource type="Script" uid="uid://1e6thej3ls71" path="res://word_box.gd" id="1_uylyq"]
-
-[node name="wordbox" type="CanvasLayer"]
-script = ExtResource("1_uylyq")

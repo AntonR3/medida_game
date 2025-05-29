@@ -1,23 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnek330uw10vb"]
+[gd_scene load_steps=5 format=3 uid="uid://bljxg5lihsjy1"]
 
 [ext_resource type="Texture2D" uid="uid://ls7kegbv8e7c" path="res://5671432_2945838.svg" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dsudgcw1o51ww" path="res://camera_2d.gd" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://dhqkkyfg6pbur" path="res://canvas_layer.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://curp82rwfi0d2" path="res://map.gd" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://ivho25spx00" path="res://word_container.tscn" id="4_1bvp3"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="SubViewPortContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 
-[node name="map" type="Sprite2D" parent="Node2D"]
-position = Vector2(1161, 771)
+[node name="SubViewPort" type="SubViewport" parent="SubViewPortContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="map" type="TextureRect" parent="SubViewPortContainer/SubViewPort"]
+offset_right = 15000.0
+offset_bottom = 10000.0
 scale = Vector2(0.1548, 0.1548)
 texture = ExtResource("1_0xm2m")
+script = ExtResource("3_lquwl")
 
-[node name="Camera2D2" type="Camera2D" parent="Node2D" node_paths=PackedStringArray("map_sprite")]
-position = Vector2(1186, 697)
+[node name="Camera2D" type="Camera2D" parent="SubViewPortContainer/SubViewPort" node_paths=PackedStringArray("map_sprite")]
+position = Vector2(1152, 648)
 scale = Vector2(5.1801, 3.27874)
 script = ExtResource("2_h2yge")
 map_sprite = NodePath("../map")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("3_h2yge")
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="unten" parent="Control" instance=ExtResource("4_1bvp3")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 508.0
+offset_right = 801.0
+offset_bottom = 648.0
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 13
+
+[node name="oben" parent="Control" instance=ExtResource("4_1bvp3")]
+layout_mode = 0
+offset_left = 351.0
+offset_right = 801.0
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 13
+
+[node name="links" parent="Control" instance=ExtResource("4_1bvp3")]
+layout_mode = 0
+offset_left = -145.0
+offset_top = 264.0
+offset_right = 305.0
+offset_bottom = 404.0
+rotation = 1.5708
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 13
+
+[node name="rechts" parent="Control" instance=ExtResource("4_1bvp3")]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 264.0
+offset_right = 1297.0
+offset_bottom = 404.0
+rotation = 4.71239
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 13
