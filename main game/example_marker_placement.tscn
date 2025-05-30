@@ -5,18 +5,17 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1163, 775)
-scale = Vector2(0.155, 0.155)
+position = Vector2(7500, 5000)
 texture = ExtResource("1_wlaih")
 
 [node name="GB" type="Marker2D" parent="."]
-position = Vector2(1049, 382)
+position = Vector2(6699, 2401)
 
 [node name="JP" type="Marker2D" parent="."]
-position = Vector2(1995, 518)
+position = Vector2(12842, 3366)
 
 [node name="ÄG" type="Marker2D" parent="."]
-position = Vector2(1257, 603)
+position = Vector2(8112, 3899)
 
 [node name="EC" type="Marker2D" parent="."]
-position = Vector2(484, 845)
+position = Vector2(3131, 5448)

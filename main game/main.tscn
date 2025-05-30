@@ -34,6 +34,17 @@ scale = Vector2(5.1801, 3.27874)
 script = ExtResource("2_h2yge")
 map_sprite = NodePath("../map")
 
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 288.0
+offset_right = 924.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 50
+text = "Distanz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
 
@@ -76,3 +87,5 @@ rotation = 4.71239
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
+
+[connection signal="marker_placed" from="SubViewPortContainer/SubViewPort/map" to="." method="_on_marker_placed"]
