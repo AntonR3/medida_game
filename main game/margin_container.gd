@@ -23,3 +23,6 @@ func _can_drop_data(at_position, data):
 
 func _drop_data(at_position, data):
 	pass
+
+func set_text(text: String):
+	$MarginContainer/VBoxContainer/Label.text = text

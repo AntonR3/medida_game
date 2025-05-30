@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bljxg5lihsjy1"]
+[gd_scene load_steps=6 format=3 uid="uid://bljxg5lihsjy1"]
 
 [ext_resource type="Texture2D" uid="uid://ls7kegbv8e7c" path="res://5671432_2945838.svg" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b0xpasud34p2b" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://dsudgcw1o51ww" path="res://camera_2d.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://curp82rwfi0d2" path="res://map.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ivho25spx00" path="res://word_container.tscn" id="4_1bvp3"]
@@ -8,6 +9,7 @@
 [node name="Node2D" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_lquwl")
 
 [node name="SubViewPortContainer" type="SubViewportContainer" parent="."]
 layout_mode = 0
