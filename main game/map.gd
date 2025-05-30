@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 func _can_drop_data(at_position, data):
 	return data.item_id == "marker"

@@ -13,10 +13,15 @@ var _target_zoom: float = 1.0
 
 func _ready() -> void:
 	set_physics_process(false)
+	set_limit(1, 0)
+	set_limit(3, 1550)
+	set_limit(0, 0)
+	set_limit(2, 2325)
 	
 func _physics_process(delta: float) -> void:
 	zoom = lerp(zoom, _target_zoom * Vector2.ONE, ZOOM_RATE * delta)
 	set_physics_process(not is_equal_approx(zoom.x, _target_zoom))
+	_clamp_camera_position()
 
 
 func _input(event: InputEvent) -> void:
@@ -31,7 +36,9 @@ func _input(event: InputEvent) -> void:
 			dragging = event.pressed
 	elif event is InputEventMouseMotion && dragging:
 		position -= event.relative / zoom
-
+		_clamp_camera_position()
+		print(position)
+		
 func zoom_in() -> void:
 	_target_zoom = max(_target_zoom - ZOOM_INCREMENT, MIN_ZOOM)
 	set_physics_process(true)
@@ -45,29 +52,12 @@ func zoom_out() -> void:
 func focus_position(target_position: Vector2) -> void:
 	var _tween = get_tree().create_tween()
 	_tween.tween_property(self, "position", target_position, 0.5).set_trans(Tween.TRANS_EXPO)
+	_clamp_camera_position()
 	
 	
 func _clamp_camera_position() -> void:
 	if !map_sprite || !map_sprite.texture:
 		return
 
-	var map_rect: Rect2 = map_sprite.get_global_rect()
-	
-	var vp_size_px: Vector2 = get_viewport_rect().size
-	var view_size: Vector2 = vp_size_px * zoom
-	var half: Vector2 = view_size * 0.5
-
-	var min_x = map_rect.position.x + half.x
-	var max_x = map_rect.position.x + map_rect.size.x - half.x
-	var min_y = map_rect.position.y + half.y
-	var max_y = map_rect.position.y + map_rect.size.y - half.y
-
-	if max_x <= min_x: 
-		min_x = map_rect.position.x + map_rect.size.x * 0.5
-		max_x = min_x
-	if max_y <= min_y:
-		min_y = map_rect.position.y + map_rect.size.y * 0.5
-		max_y = min_y
-		
-	position.x = clamp(global_position.x, min_x, max_x)
-	position.y = clamp(global_position.y, min_y, max_y)
+	position.x = clamp(global_position.x, 576 / zoom.x, 1749 / zoom.x)
+	position.y = clamp(global_position.y, 324 / zoom.y, 1126 / zoom.y)
