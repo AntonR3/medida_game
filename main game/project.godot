@@ -11,7 +11,13 @@ config_version=5
 [application]
 
 config/name="prototype"
+run/main_scene="uid://bljxg5lihsjy1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+
+[autoload]
+
+Util="*res://util.gd"
+MarkerManager="*res://marker_manager.gd"
 
 [importer_defaults]
 

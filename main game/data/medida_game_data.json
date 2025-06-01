@@ -1,0 +1,26 @@
+{
+  "0": {
+    "NAME": "Groß Britanien",
+    "POSITION_X": 6699,
+    "POSITION_Y": 2401,
+    "POINTS": null
+  },
+  "1": {
+    "NAME": "Japan",
+    "POSITION_X": 12842,
+    "POSITION_Y": 3366,
+    "POINTS": null
+  },
+  "2": {
+    "NAME": "Ägypten",
+    "POSITION_X": 8112,
+    "POSITION_Y": 3899,
+    "POINTS": null
+  },
+  "3": {
+    "NAME": "Ecuador",
+    "POSITION_X": 3131,
+    "POSITION_Y": 5448,
+    "POINTS": null
+  }
+}

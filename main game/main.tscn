@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bljxg5lihsjy1"]
+[gd_scene load_steps=6 format=3 uid="uid://bljxg5lihsjy1"]
 
 [ext_resource type="Texture2D" uid="uid://ls7kegbv8e7c" path="res://5671432_2945838.svg" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b0xpasud34p2b" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://dsudgcw1o51ww" path="res://camera_2d.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://curp82rwfi0d2" path="res://map.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ivho25spx00" path="res://word_container.tscn" id="4_1bvp3"]
@@ -8,6 +9,13 @@
 [node name="Node2D" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_lquwl")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="resetscoretext" type="Timer" parent="Node"]
+wait_time = 2.0
+one_shot = true
 
 [node name="SubViewPortContainer" type="SubViewportContainer" parent="."]
 layout_mode = 0
@@ -32,6 +40,17 @@ scale = Vector2(5.1801, 3.27874)
 script = ExtResource("2_h2yge")
 map_sprite = NodePath("../map")
 
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 288.0
+offset_right = 924.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 50
+text = "Distanz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
 
@@ -44,11 +63,15 @@ offset_bottom = 648.0
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
+number = 2
 
 [node name="oben" parent="Control" instance=ExtResource("4_1bvp3")]
 layout_mode = 0
 offset_left = 351.0
+offset_top = 20.0
 offset_right = 801.0
+offset_bottom = 160.0
+rotation = 3.14159
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
@@ -63,6 +86,7 @@ rotation = 1.5708
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
+number = 3
 
 [node name="rechts" parent="Control" instance=ExtResource("4_1bvp3")]
 layout_mode = 0
@@ -74,3 +98,7 @@ rotation = 4.71239
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
+number = 1
+
+[connection signal="timeout" from="Node/resetscoretext" to="." method="_on_resetscoretext_timeout"]
+[connection signal="marker_placed" from="SubViewPortContainer/SubViewPort/map" to="." method="_on_marker_placed"]

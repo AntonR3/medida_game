@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds61iy0b4aq5u"]
+
+[ext_resource type="Texture2D" uid="uid://ls7kegbv8e7c" path="res://5671432_2945838.svg" id="1_wlaih"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7500, 5000)
+texture = ExtResource("1_wlaih")
+
+[node name="GB" type="Marker2D" parent="."]
+position = Vector2(6699, 2401)
+
+[node name="JP" type="Marker2D" parent="."]
+position = Vector2(12842, 3366)
+
+[node name="ÄG" type="Marker2D" parent="."]
+position = Vector2(8112, 3899)
+
+[node name="EC" type="Marker2D" parent="."]
+position = Vector2(3131, 5448)
