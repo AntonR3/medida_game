@@ -39,9 +39,14 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	var correct_pos = Vector2(markers[str(marker_id)]["POSITION_X"], markers[str(marker_id)]["POSITION_Y"])
 	var dist = int(pos.distance_to(correct_pos))
 	set_dist_score(str(dist))
-	pass
+	$SubViewPortContainer/SubViewPort/map.drop_correct_marker(correct_pos)
+	$SubViewPortContainer/SubViewPort/map.set_correct_pos_line(pos, correct_pos, Color.CRIMSON)
 
 func set_dist_score(dist: String):
 	$Score.show()
 	var text = "Distanz: " + dist + "Pixel"
 	$Score.text = text
+	$Node/resetscoretext.start()
+
+func _on_resetscoretext_timeout() -> void:
+	$Score.hide()
