@@ -1,14 +1,14 @@
 {
   "0": {
     "NAME": "Groß Britanien",
-    "POSITION_X": 1049,
-    "POSITION_Y": 382,
+    "POSITION_X": 6699,
+    "POSITION_Y": 2401,
     "SCORE": null
   },
   "1": {
     "NAME": "Japan",
-    "POSITION_X": 1995,
-    "POSITION_Y": 518,
+    "POSITION_X": 12842,
+    "POSITION_Y": 3366,
     "SCORE": null
   },
   "2": {
@@ -19,8 +19,8 @@
   },
   "3": {
     "NAME": "Ecuador",
-    "POSITION_X": 484,
-    "POSITION_Y": 845,
+    "POSITION_X": 3131,
+    "POSITION_Y": 5448,
     "SCORE": null
   }
 }

@@ -54,7 +54,6 @@ func setup_markers_open_markers():
 func fill_containers():
 	for child in get_node("Control").get_children():
 		var number = randi_range(1,3)
-		print(number)
 		match number:
 			1:
 				var point = open_points.pick_random()
@@ -64,13 +63,13 @@ func fill_containers():
 				print("of points")
 			2:
 				var polygon = open_polygons.pick_random()
-				open_polygons.erase(polygon)
+				#open_polygons.erase(polygon)
 				child.set_text(polygons[polygon]["NAME"], int(polygon))
 				print(polygons[polygon]["NAME"])
 				print("of polygons")
 			3:
 				var line = open_lines.pick_random()
-				open_lines.erase(line)
+				#open_lines.erase(line)
 				child.set_text(lines[line]["NAME"], int(line))
 				print(lines[line]["NAME"])
 				print("of lines")
@@ -87,17 +86,17 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	var correct_pos
 	var dist
 	
-	if points.get("ID") == marker_id:
+	if marker_id <= 3:
 		correct_pos = Vector2(points[str(marker_id)]["POSITION_X"], points[str(marker_id)]["POSITION_Y"])
 		dist = int(pos.distance_to(correct_pos))
-	elif polygons.get("ID") == marker_id:
-		correct_tuple = get_distance_polygon_point(polygons[str(marker_id)]["POINTS"], pos)
+	elif marker_id == 4:
+		correct_tuple = get_distance_polygon_point(parse_vector2_list(polygons[str(marker_id)]["POINTS"]), pos)
 		correct_pos = correct_tuple[1]
-		dist = correct_tuple[0]
-	elif lines.get("ID") == marker_id:
-		correct_tuple = get_distance_line_point(lines[str(marker_id)]["POINTS"], pos)
+		dist = int(correct_tuple[0])
+	elif marker_id == 5:
+		correct_tuple = get_distance_line_point(parse_vector2_list(lines[str(marker_id)]["POINTS"]), pos)
 		correct_pos = correct_tuple[1]
-		dist = correct_tuple[0]
+		dist = int(correct_tuple[0])
 	else:
 		push_error("marker not found in dictionaries")
 	set_dist_score(str(dist))
