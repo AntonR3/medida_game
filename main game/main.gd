@@ -1,13 +1,23 @@
 extends Control
 
+#signals used
+signal game_end
+
+#variables for game logic
+var score: int
+var counter: int
+
+#Dictionaries for Markers
 var points: Dictionary
 var polygons: Dictionary
 var lines: Dictionary
 
+#Arrays for not answered Markers
 var open_points: Array
 var open_polygons: Array
 var open_lines: Array
 
+#json paths for parsing
 var json_path_points = "res://data/medida_game_data_points.json"
 var json_path_polygons = "res://data/medida_game_data_polygons.json"
 var json_path_lines = "res://data/medida_game_data_lines.json"
@@ -19,7 +29,10 @@ func initial_setup():
 	randomize()
 	setup_markers_open_markers()
 	fill_containers()
-	$Score.hide()
+	$Score_Popup.hide()
+	
+	score = 0
+	$Score_Tracker.text = str(score)
 	
 func setup_markers_open_markers():
 	var points_string = FileAccess.get_file_as_string(json_path_points)
@@ -78,6 +91,8 @@ func fill_containers():
 				push_error("wrong number has been generated randomly (not 1-3)")
 
 func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
+	counter += 1
+	print(counter)
 	var container_id = int(data.x)
 	var marker_id = int(data.y)
 	
@@ -89,32 +104,52 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	if marker_id <= 3:
 		correct_pos = Vector2(points[str(marker_id)]["POSITION_X"], points[str(marker_id)]["POSITION_Y"])
 		dist = int(pos.distance_to(correct_pos))
+		$SubViewPortContainer/SubViewPort/map.drop_correct_marker(correct_pos)
+		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
 	elif marker_id == 4:
-		correct_tuple = get_distance_polygon_point(parse_vector2_list(polygons[str(marker_id)]["POINTS"]), pos)
+		var polygon_points = parse_vector2_list(polygons[str(marker_id)]["POINTS"])
+		correct_tuple = get_distance_polygon_point(polygon_points, pos)
 		correct_pos = correct_tuple[1]
 		dist = int(correct_tuple[0])
+		$SubViewPortContainer/SubViewPort/map.draw_correct_polygon(polygon_points)
+		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
 	elif marker_id == 5:
-		correct_tuple = get_distance_line_point(parse_vector2_list(lines[str(marker_id)]["POINTS"]), pos)
+		var line_points = parse_vector2_list(lines[str(marker_id)]["POINTS"])
+		correct_tuple = get_distance_line_point(line_points, pos)
 		correct_pos = correct_tuple[1]
 		dist = int(correct_tuple[0])
+		$SubViewPortContainer/SubViewPort/map.draw_correct_line(line_points)
+		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
 	else:
 		push_error("marker not found in dictionaries")
-	set_dist_score(str(dist))
-	$SubViewPortContainer/SubViewPort/map.drop_correct_marker(correct_pos)
-	$SubViewPortContainer/SubViewPort/map.set_correct_pos_line(pos, correct_pos, Color.CRIMSON)
+	print(correct_pos, dist)
+	var score_update = calc_score(dist)
+	set_pop_up_score(str(score_update))
+	if counter == 10:
+		emit_signal("game_end")
 
-func set_dist_score(dist: String):
-	$Score.show()
-	var text = "Distanz: " + dist + "Pixel"
-	$Score.text = text
-	$Node/resetscoretext.start()
+func set_pop_up_score(update: String):
+	$Score_Popup.show()
+	var text
+	if counter == 10:
+		text = "neue Punkte: " + update +"!" + "\n" + "Spiel wird beendet!"
+	else:
+		text = "neue Punkte: " + update +"!"
+	$Score_Popup.text = text
+	$Node/Label_Timer.start()
 
-func _on_resetscoretext_timeout() -> void:
-	$Score.hide()
-
-
-
-
+func calc_score(dist: float) -> int:
+	if dist <= 100:
+		score += 10
+		$Score_Tracker.text = str(score)
+		return 10
+	elif dist > 300:
+		$Score_Tracker.text = str(score)
+		return 0
+	else:
+		score += int(floor((300-dist)/20))
+		$Score_Tracker.text = str(score)
+		return int(floor((300-dist)/20))
 
 
 
@@ -170,3 +205,14 @@ func parse_vector2_list(input: String) -> PackedVector2Array:
 		else:
 			push_error("Ungültiges Tupel: " + tuple)
 	return vectors
+
+
+func _on_label_timer_timeout() -> void:
+	$Score_Popup.hide()
+
+
+func _on_game_end() -> void:
+	#add logic for the end of the game
+	#maybe make a scene where 
+	await get_tree().create_timer(2.0).timeout
+	get_tree().quit(0)

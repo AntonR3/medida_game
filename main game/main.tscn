@@ -13,7 +13,7 @@ script = ExtResource("1_lquwl")
 
 [node name="Node" type="Node" parent="."]
 
-[node name="resetscoretext" type="Timer" parent="Node"]
+[node name="Label_Timer" type="Timer" parent="Node"]
 wait_time = 2.0
 one_shot = true
 
@@ -40,12 +40,27 @@ scale = Vector2(5.1801, 3.27874)
 script = ExtResource("2_h2yge")
 map_sprite = NodePath("../map")
 
-[node name="Score" type="Label" parent="."]
+[node name="Score_Tracker" type="Label" parent="."]
+layout_mode = 1
+offset_left = 916.0
+offset_top = 7.0
+offset_right = 1146.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.00392157, 0.215686, 0.490196, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.277)
+theme_override_font_sizes/font_size = 40
+text = "Punkte"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_Popup" type="Label" parent="."]
 layout_mode = 0
 offset_left = 224.0
 offset_top = 288.0
 offset_right = 924.0
 offset_bottom = 368.0
+theme_override_colors/font_color = Color(0.00392157, 0.215686, 0.490196, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.277)
 theme_override_font_sizes/font_size = 50
 text = "Distanz"
 horizontal_alignment = 1
@@ -100,5 +115,6 @@ mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
 number = 1
 
-[connection signal="timeout" from="Node/resetscoretext" to="." method="_on_resetscoretext_timeout"]
+[connection signal="game_end" from="." to="." method="_on_game_end"]
+[connection signal="timeout" from="Node/Label_Timer" to="." method="_on_label_timer_timeout"]
 [connection signal="marker_placed" from="SubViewPortContainer/SubViewPort/map" to="." method="_on_marker_placed"]
