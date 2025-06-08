@@ -28,7 +28,7 @@ func _ready() -> void:
 func initial_setup():
 	randomize()
 	setup_markers_open_markers()
-	fill_containers()
+	initial_fill_containers()
 	$Score_Popup.hide()
 	
 	score = 0
@@ -64,31 +64,9 @@ func setup_markers_open_markers():
 	for line in lines:
 		open_lines.append(line)
 	
-func fill_containers():
+func initial_fill_containers():
 	for child in get_node("Control").get_children():
-		var number = randi_range(1,3)
-		match number:
-			1:
-				var point = open_points.pick_random()
-				open_points.erase(point)
-				child.set_text(points[point]["NAME"], int(point))
-				print(points[point]["NAME"])
-				print("of points")
-			2:
-				var polygon = open_polygons.pick_random()
-				#open_polygons.erase(polygon)
-				child.set_text(polygons[polygon]["NAME"], int(polygon))
-				print(polygons[polygon]["NAME"])
-				print("of polygons")
-			3:
-				var line = open_lines.pick_random()
-				#open_lines.erase(line)
-				child.set_text(lines[line]["NAME"], int(line))
-				print(lines[line]["NAME"])
-				print("of lines")
-			_:
-				print("something went wrong")
-				push_error("wrong number has been generated randomly (not 1-3)")
+		fill_container(child)
 
 func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	counter += 1
@@ -122,9 +100,11 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
 	else:
 		push_error("marker not found in dictionaries")
-	print(correct_pos, dist)
 	var score_update = calc_score(dist)
 	set_pop_up_score(str(score_update))
+	
+	fill_container(get_node("Control").get_container(container_id))
+	
 	if counter == 10:
 		emit_signal("game_end")
 
@@ -207,9 +187,46 @@ func parse_vector2_list(input: String) -> PackedVector2Array:
 	return vectors
 
 
+
+func fill_container(container: MarginContainer):
+	var retry = true
+	while retry == true:
+		var number = randi_range(1,3)
+
+		match number:
+			1:
+				if open_points.is_empty():
+					retry = true
+				else:
+					retry = false
+					var point = open_points.pick_random()
+					open_points.erase(point)
+					container.set_text(points[point]["NAME"], int(point))
+			2:
+				if open_polygons.is_empty():
+					retry = true
+				else:
+					retry = false
+					var polygon = open_polygons.pick_random()
+					open_polygons.erase(polygon)
+					container.set_text(polygons[polygon]["NAME"], int(polygon))
+			3:
+				if open_lines.is_empty():
+					retry = true
+				else:
+					retry = false
+					var line = open_lines.pick_random()
+					open_lines.erase(line)
+					container.set_text(lines[line]["NAME"], int(line))
+			_:
+				print("something went wrong")
+				push_error("wrong number has been generated randomly (not 1-3)")
+		if open_points.is_empty() && open_polygons.is_empty() && open_lines.is_empty():
+			print("No more markers left :(")
+			retry = false
+
 func _on_label_timer_timeout() -> void:
 	$Score_Popup.hide()
-
 
 func _on_game_end() -> void:
 	#add logic for the end of the game

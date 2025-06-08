@@ -1,36 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds61iy0b4aq5u"]
 
 [ext_resource type="Script" uid="uid://b0m6jjxnvu7nl" path="res://example_marker_placement.gd" id="1_uoc4h"]
-[ext_resource type="Texture2D" uid="uid://ls7kegbv8e7c" path="res://5671432_2945838.svg" id="1_wlaih"]
+[ext_resource type="Texture2D" uid="uid://rh5usbu6lo53" path="res://dtlkarte.svg" id="2_uoc4h"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uoc4h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7500, 5000)
-texture = ExtResource("1_wlaih")
+position = Vector2(2500, 3500)
+texture = ExtResource("2_uoc4h")
 
 [node name="points" type="Node2D" parent="."]
 
-[node name="GB" type="Marker2D" parent="points"]
-position = Vector2(6699, 2401)
-
-[node name="JP" type="Marker2D" parent="points"]
-position = Vector2(12842, 3366)
-
-[node name="PL" type="Marker2D" parent="points"]
-position = Vector2(7615, 2522)
-
-[node name="EC" type="Marker2D" parent="points"]
-position = Vector2(3131, 5448)
-
 [node name="polygons" type="Node2D" parent="."]
 
-[node name="Polygon2D" type="Polygon2D" parent="polygons"]
-polygon = PackedVector2Array(7929, 4151, 8355, 4160, 8407, 4079, 8253, 3764, 8325, 3770, 8337, 3742, 8308, 3676, 8165, 3635, 8066, 3680, 7904, 3628)
-uv = PackedVector2Array(7929, 4151, 8355, 4160, 8407, 4079, 8253, 3764, 8325, 3770, 8337, 3742, 8308, 3676, 8165, 3635, 8066, 3680, 7904, 3628)
-
 [node name="lines" type="Node2D" parent="."]
-
-[node name="Line2D" type="Line2D" parent="lines"]
-points = PackedVector2Array(7169, 2432, 7182, 2508, 7168, 2568, 7185, 2632)
