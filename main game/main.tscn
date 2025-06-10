@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bljxg5lihsjy1"]
+[gd_scene load_steps=8 format=3 uid="uid://bljxg5lihsjy1"]
 
 [ext_resource type="Script" uid="uid://b0xpasud34p2b" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://rh5usbu6lo53" path="res://dtlkarte.svg" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://dsudgcw1o51ww" path="res://camera_2d.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://curp82rwfi0d2" path="res://map.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ivho25spx00" path="res://word_container.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" path="res://GCC2D.tscn" id="4_272bh"]
 [ext_resource type="Script" uid="uid://dbioo60spwtfg" path="res://control.gd" id="5_7mycd"]
 
 [node name="Node2D" type="Control"]
@@ -35,7 +36,11 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_7mycd")
 script = ExtResource("3_lquwl")
 
+[node name="GCC2D" parent="SubViewPortContainer/SubViewPort" instance=ExtResource("4_272bh")]
+rotation_gesture = 0
+
 [node name="Camera2D" type="Camera2D" parent="SubViewPortContainer/SubViewPort" node_paths=PackedStringArray("map_sprite")]
+visible = false
 position = Vector2(636, 749)
 scale = Vector2(5.1801, 3.27874)
 script = ExtResource("2_h2yge")

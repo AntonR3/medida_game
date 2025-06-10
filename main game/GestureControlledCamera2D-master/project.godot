@@ -10,19 +10,13 @@ config_version=5
 
 [application]
 
-config/name="prototype"
-run/main_scene="uid://bljxg5lihsjy1"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/name="GestureControlledCamera2D"
+run/main_scene="res://Demo.tscn"
+config/features=PackedStringArray("4.0")
 
 [autoload]
 
 InputManager="*res://GDTIM-4.x-v2_1_2/InputManager.gd"
-
-[importer_defaults]
-
-texture={
-&"svg/scale": 10.0
-}
 
 [input_devices]
 
@@ -30,5 +24,5 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_environment="res://default_env.tres"

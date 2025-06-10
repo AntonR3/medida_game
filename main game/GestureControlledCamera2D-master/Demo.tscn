@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bywicuxckrdfc"]
+
+[ext_resource type="Texture2D" uid="uid://cvjxijew13y74" path="res://Sprite.jpg" id="1_dy1uf"]
+[ext_resource type="PackedScene" path="res://GCC2D.tscn" id="2"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dy1uf")
+
+[node name="GCC2D" parent="." instance=ExtResource("2")]
+ignore_rotation = false
+limit_left = -1250
+limit_top = -600
+limit_right = 1250
+limit_bottom = 600
