@@ -7,11 +7,137 @@
 script = ExtResource("1_uoc4h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(2500, 3500)
 texture = ExtResource("2_uoc4h")
 
 [node name="points" type="Node2D" parent="."]
 
+[node name="Essen" type="Marker2D" parent="points"]
+position = Vector2(834, 3224)
+
+[node name="Dortmund" type="Marker2D" parent="points"]
+position = Vector2(1133, 3204)
+
+[node name="Düsseldorf" type="Marker2D" parent="points"]
+position = Vector2(781, 3426)
+
+[node name="Köln" type="Marker2D" parent="points"]
+position = Vector2(816, 3718)
+
+[node name="Wiesbaden" type="Marker2D" parent="points"]
+position = Vector2(1440, 4400)
+
+[node name="Mainz" type="Marker2D" parent="points"]
+position = Vector2(1392, 4525)
+
+[node name="Frankfurt" type="Marker2D" parent="points"]
+position = Vector2(1741, 4407)
+
+[node name="Nürnberg" type="Marker2D" parent="points"]
+position = Vector2(2909, 4999)
+
+[node name="Stuttgart" type="Marker2D" parent="points"]
+position = Vector2(1917, 5511)
+
+[node name="München" type="Marker2D" parent="points"]
+position = Vector2(3197, 6162)
+
+[node name="Kiel" type="Marker2D" parent="points"]
+position = Vector2(2534, 853)
+
+[node name="Hamburg" type="Marker2D" parent="points"]
+position = Vector2(2407, 1505)
+
+[node name="Bremen" type="Marker2D" parent="points"]
+position = Vector2(1801, 1853)
+
+[node name="Hannover" type="Marker2D" parent="points"]
+position = Vector2(2279, 2439)
+
+[node name="Magdeburg" type="Marker2D" parent="points"]
+position = Vector2(3275, 2641)
+
+[node name="Erfurt" type="Marker2D" parent="points"]
+position = Vector2(2982, 3723)
+
+[node name="Schwerin" type="Marker2D" parent="points"]
+position = Vector2(3128, 1465)
+
+[node name="Rostock" type="Marker2D" parent="points"]
+position = Vector2(3462, 1073)
+
+[node name="Berlin" type="Marker2D" parent="points"]
+position = Vector2(4154, 2404)
+
+[node name="Potsdam" type="Marker2D" parent="points"]
+position = Vector2(3934, 2585)
+
+[node name="Leipzig" type="Marker2D" parent="points"]
+position = Vector2(3701, 3421)
+
+[node name="Dresden" type="Marker2D" parent="points"]
+position = Vector2(4171, 3482)
+
 [node name="polygons" type="Node2D" parent="."]
+visible = false
+
+[node name="Müritz" type="Polygon2D" parent="polygons"]
+polygon = PackedVector2Array(-155.5, -60, -103, -15, -173, 41.5, -215, -42)
+uv = PackedVector2Array(-155.5, -60, -61, -21, -173, 41.5, -215, -42)
+
+[node name="Bodensee" type="Polygon2D" parent="polygons"]
+
+[node name="Nordsee" type="Polygon2D" parent="polygons"]
+
+[node name="Ostsee" type="Polygon2D" parent="polygons"]
+
+[node name="Chiemsee" type="Polygon2D" parent="polygons"]
+
+[node name="Rügen" type="Polygon2D" parent="polygons"]
+
+[node name="Fehmarn" type="Polygon2D" parent="polygons"]
+
+[node name="Ostfreisische Inseln" type="Polygon2D" parent="polygons"]
+
+[node name="Nordfriesische Inseln" type="Polygon2D" parent="polygons"]
+
+[node name="Harz" type="Polygon2D" parent="polygons"]
+
+[node name="Fränkische Alb" type="Polygon2D" parent="polygons"]
+
+[node name="Thüringer Wald" type="Polygon2D" parent="polygons"]
+
+[node name="Schwäbische Alb" type="Polygon2D" parent="polygons"]
+
+[node name="Erzgebirge" type="Polygon2D" parent="polygons"]
+
+[node name="Bayrischer Wald" type="Polygon2D" parent="polygons"]
+
+[node name="Schwarzwald" type="Polygon2D" parent="polygons"]
+
+[node name="Rheinisches Schiefergebirge" type="Polygon2D" parent="polygons"]
+
+[node name="Alpen" type="Polygon2D" parent="polygons"]
 
 [node name="lines" type="Node2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+
+[node name="Rhein" type="Line2D" parent="lines"]
+
+[node name="Elbe" type="Line2D" parent="lines"]
+
+[node name="Donau" type="Line2D" parent="lines"]
+
+[node name="Weser" type="Line2D" parent="lines"]
+
+[node name="Main" type="Line2D" parent="lines"]
+
+[node name="Neckar" type="Line2D" parent="lines"]
+
+[node name="Nord-Ostsee-Kanal" type="Line2D" parent="lines"]
+
+[node name="Mittellandkanal" type="Line2D" parent="lines"]
+
+[node name="Main-Donau-Kanal" type="Line2D" parent="lines"]
