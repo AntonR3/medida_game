@@ -1,5 +1,7 @@
 extends Camera2D
 
+var boundary = Rect2(0,0,1250,1750)
+
 # Einstellungen
 @export var map_sprite: TextureRect
 const MIN_ZOOM: float = 1.0
@@ -11,13 +13,11 @@ var dragging = false
 
 var _target_zoom: float = 1.0
 
+
 func _ready() -> void:
 	zoom = Vector2(1,1)
 	set_physics_process(false)
-	set_limit(1, 0)
-	set_limit(3, 1550)
-	set_limit(0, 0)
-	set_limit(2, 2325)
+
 	
 func _physics_process(delta: float) -> void:
 	zoom = lerp(zoom, _target_zoom * Vector2.ONE, ZOOM_RATE * delta)
@@ -36,7 +36,11 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == 1:
 			dragging = event.pressed
 	elif event is InputEventMouseMotion && dragging:
-		position -= event.relative / zoom
+		var new_position = position - event.relative / zoom
+		if new_position.x < limit_left || new_position.y > limit_right || new_position.y < limit_top || new_position.y > limit_bottom:
+			pass
+		else:
+			position = new_position
 		_clamp_camera_position()
 		
 func zoom_in() -> void:
@@ -58,6 +62,11 @@ func focus_position(target_position: Vector2) -> void:
 func _clamp_camera_position() -> void:
 	if !map_sprite || !map_sprite.texture:
 		return
-
-	position.x = clamp(global_position.x, 576 / zoom.x, 1749 * zoom.x)
-	position.y = clamp(global_position.y, 324 / zoom.y, 1126 * zoom.y)
+	
+	var viewport_rect = get_viewport_rect()
+	var camera_size = viewport_rect.size / zoom
+	var half_cam = camera_size * 0.5
+	var minpos = boundary.position + half_cam
+	var maxpos = boundary.position + boundary.size - half_cam
+	position.x = clamp(position.x, minpos.x, maxpos.x)
+	position.y = clamp(position.y, minpos.y, maxpos.y)

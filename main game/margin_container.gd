@@ -23,3 +23,6 @@ func _drop_data(at_position, data):
 func set_text(text: String, id: int):
 	marker_id = id
 	$MarginContainer/VBoxContainer/Label.text = text
+
+func get_number():
+	return number

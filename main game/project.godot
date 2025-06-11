@@ -16,8 +16,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [autoload]
 
-Util="*res://util.gd"
-MarkerManager="*res://marker_manager.gd"
+InputManager="*res://GDTIM-4.x-v2_1_2/InputManager.gd"
 
 [importer_defaults]
 
