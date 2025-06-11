@@ -1,40 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://bljxg5lihsjy1"]
+[gd_scene load_steps=6 format=3 uid="uid://ebdudlv0bxmo"]
 
-[ext_resource type="Script" uid="uid://b0xpasud34p2b" path="res://main.gd" id="1_lquwl"]
-[ext_resource type="Texture2D" uid="uid://rh5usbu6lo53" path="res://dtlkarte.svg" id="2_7mycd"]
-[ext_resource type="Script" uid="uid://curp82rwfi0d2" path="res://map.gd" id="3_lquwl"]
-[ext_resource type="PackedScene" uid="uid://ivho25spx00" path="res://word_container.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://d2fxny5lp56yo" path="res://GCC2D.tscn" id="4_272bh"]
-[ext_resource type="Script" path="res://control.gd" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://b0xpasud34p2b" path="res://main.gd" id="1_7nfl6"]
+[ext_resource type="Texture2D" uid="uid://rh5usbu6lo53" path="res://dtlkarte.svg" id="1_g74em"]
+[ext_resource type="PackedScene" uid="uid://d2fxny5lp56yo" path="res://GCC2D.tscn" id="2_b1djr"]
+[ext_resource type="Script" path="res://control.gd" id="3_yrg75"]
+[ext_resource type="PackedScene" uid="uid://ivho25spx00" path="res://word_container.tscn" id="4_7nfl6"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_lquwl")
+script = ExtResource("1_7nfl6")
 
-[node name="Node" type="Node" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Label_Timer" type="Timer" parent="Node"]
-wait_time = 2.0
-one_shot = true
-
-[node name="SubViewPortContainer" type="SubViewportContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="SubViewPort" type="SubViewport" parent="SubViewPortContainer"]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="map" type="TextureRect" parent="SubViewPortContainer/SubViewPort"]
-offset_top = 1250.0
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport"]
 offset_right = 5000.0
-offset_bottom = 8250.0
-rotation = -1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_7mycd")
-script = ExtResource("3_lquwl")
+offset_bottom = 7000.0
+texture = ExtResource("1_g74em")
 
-[node name="GCC2D" parent="SubViewPortContainer/SubViewPort" instance=ExtResource("4_272bh")]
+[node name="GCC2D" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_b1djr")]
 rotation_gesture = 0
 
 [node name="Score_Tracker" type="Label" parent="."]
@@ -68,9 +57,9 @@ vertical_alignment = 1
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
-script = ExtResource("5_7mycd")
+script = ExtResource("3_yrg75")
 
-[node name="unten" parent="Control" instance=ExtResource("4_1bvp3")]
+[node name="unten" parent="Control" instance=ExtResource("4_7nfl6")]
 layout_mode = 0
 offset_left = 351.0
 offset_top = 508.0
@@ -81,7 +70,7 @@ mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
 number = 2
 
-[node name="oben" parent="Control" instance=ExtResource("4_1bvp3")]
+[node name="oben" parent="Control" instance=ExtResource("4_7nfl6")]
 layout_mode = 0
 offset_left = 351.0
 offset_top = 20.0
@@ -92,7 +81,7 @@ mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
 
-[node name="links" parent="Control" instance=ExtResource("4_1bvp3")]
+[node name="links" parent="Control" instance=ExtResource("4_7nfl6")]
 layout_mode = 0
 offset_left = -145.0
 offset_top = 264.0
@@ -104,7 +93,7 @@ mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
 number = 3
 
-[node name="rechts" parent="Control" instance=ExtResource("4_1bvp3")]
+[node name="rechts" parent="Control" instance=ExtResource("4_7nfl6")]
 layout_mode = 0
 offset_left = 847.0
 offset_top = 264.0
@@ -115,7 +104,3 @@ mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
 number = 1
-
-[connection signal="game_end" from="." to="." method="_on_game_end"]
-[connection signal="timeout" from="Node/Label_Timer" to="." method="_on_label_timer_timeout"]
-[connection signal="marker_placed" from="SubViewPortContainer/SubViewPort/map" to="." method="_on_marker_placed"]
