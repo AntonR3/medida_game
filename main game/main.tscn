@@ -35,6 +35,7 @@ texture = ExtResource("2_7mycd")
 script = ExtResource("3_lquwl")
 
 [node name="GCC2D" parent="SubViewPortContainer/SubViewPort" instance=ExtResource("4_272bh")]
+position = Vector2(920, 573)
 rotation_gesture = 0
 
 [node name="Score_Tracker" type="Label" parent="."]

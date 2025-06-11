@@ -76,7 +76,6 @@ func _unhandled_input(e):
 		_rotate(e)
 	elif e is InputEventScreenPinch and zoom_gesture == 1:
 		_zoom(e)
-		print(zoom)
 	_clamp_camera_position()
 
 # Given a a position on the camera returns to the corresponding global position
