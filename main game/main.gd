@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 #signals used
 signal game_end

@@ -1,16 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bljxg5lihsjy1"]
+[gd_scene load_steps=7 format=3 uid="uid://bljxg5lihsjy1"]
 
 [ext_resource type="Script" uid="uid://b0xpasud34p2b" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://rh5usbu6lo53" path="res://dtlkarte.svg" id="2_7mycd"]
-[ext_resource type="Script" uid="uid://dsudgcw1o51ww" path="res://camera_2d.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://curp82rwfi0d2" path="res://map.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ivho25spx00" path="res://word_container.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" path="res://GCC2D.tscn" id="4_272bh"]
-[ext_resource type="Script" uid="uid://dbioo60spwtfg" path="res://control.gd" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://d2fxny5lp56yo" path="res://GCC2D.tscn" id="4_272bh"]
+[ext_resource type="Script" path="res://control.gd" id="5_7mycd"]
 
-[node name="Node2D" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_lquwl")
 
 [node name="Node" type="Node" parent="."]
@@ -20,7 +17,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="SubViewPortContainer" type="SubViewportContainer" parent="."]
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
@@ -30,24 +26,19 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="map" type="TextureRect" parent="SubViewPortContainer/SubViewPort"]
+offset_top = 1250.0
 offset_right = 5000.0
-offset_bottom = 7000.0
+offset_bottom = 8250.0
+rotation = -1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_7mycd")
 script = ExtResource("3_lquwl")
 
 [node name="GCC2D" parent="SubViewPortContainer/SubViewPort" instance=ExtResource("4_272bh")]
+position = Vector2(920, 573)
 rotation_gesture = 0
 
-[node name="Camera2D" type="Camera2D" parent="SubViewPortContainer/SubViewPort" node_paths=PackedStringArray("map_sprite")]
-visible = false
-position = Vector2(636, 749)
-scale = Vector2(5.1801, 3.27874)
-script = ExtResource("2_h2yge")
-map_sprite = NodePath("../map")
-
 [node name="Score_Tracker" type="Label" parent="."]
-layout_mode = 1
 offset_left = 916.0
 offset_top = 7.0
 offset_right = 1146.0
@@ -61,7 +52,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_Popup" type="Label" parent="."]
-layout_mode = 0
 offset_left = 224.0
 offset_top = 288.0
 offset_right = 924.0
@@ -76,7 +66,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 script = ExtResource("5_7mycd")
 
 [node name="unten" parent="Control" instance=ExtResource("4_1bvp3")]

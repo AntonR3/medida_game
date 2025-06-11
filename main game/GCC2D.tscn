@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2fxny5lp56yo"]
+
+[ext_resource type="Script" uid="uid://drjsakgfv46nh" path="res://GCC2D.gd" id="1"]
+
+[node name="GCC2D" type="Camera2D"]
+script = ExtResource("1")
