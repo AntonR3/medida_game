@@ -79,19 +79,19 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	var correct_pos
 	var dist
 	
-	if marker_id <= 3:
+	if marker_id <= 22:
 		correct_pos = Vector2(points[str(marker_id)]["POSITION_X"], points[str(marker_id)]["POSITION_Y"])
 		dist = int(pos.distance_to(correct_pos))
 		$SubViewPortContainer/SubViewPort/map.drop_correct_marker(correct_pos)
 		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
-	elif marker_id == 4:
+	elif marker_id > 22 and marker_id <= 40:
 		var polygon_points = parse_vector2_list(polygons[str(marker_id)]["POINTS"])
 		correct_tuple = get_distance_polygon_point(polygon_points, pos)
 		correct_pos = correct_tuple[1]
 		dist = int(correct_tuple[0])
 		$SubViewPortContainer/SubViewPort/map.draw_correct_polygon(polygon_points)
 		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
-	elif marker_id == 5:
+	elif marker_id > 40 and marker_id <= 49:
 		var line_points = parse_vector2_list(lines[str(marker_id)]["POINTS"])
 		correct_tuple = get_distance_line_point(line_points, pos)
 		correct_pos = correct_tuple[1]
