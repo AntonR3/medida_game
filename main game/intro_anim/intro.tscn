@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dl0rmioafiuw3"]
+[gd_scene load_steps=33 format=3 uid="uid://dl0rmioafiuw3"]
 
 [ext_resource type="Texture2D" uid="uid://dj72ijtcs6b6w" path="res://assets/cockpit.svg" id="1_7y43c"]
 [ext_resource type="Script" uid="uid://chfw1ggnuq8p3" path="res://intro_anim/intro_cutscene.gd" id="1_p1a33"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dqxwedyjd3pfh" path="res://assets/point-hand.svg" id="11_g1gpk"]
 [ext_resource type="Texture2D" uid="uid://7po6a4fsgx1e" path="res://deutschland_karte.svg" id="12_wnw0q"]
 [ext_resource type="Texture2D" uid="uid://cst2mp2sal024" path="res://loc_icon.svg" id="14_wnw0q"]
+[ext_resource type="AudioStream" uid="uid://cehqc5b6j1e47" path="res://slow-travel.wav" id="16_ywm83"]
 
 [sub_resource type="Animation" id="Animation_vvwm2"]
 resource_name = "Chapter_01"
@@ -1743,3 +1744,7 @@ texture = ExtResource("5_ywm83")
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_ywm83")
+autoplay = true

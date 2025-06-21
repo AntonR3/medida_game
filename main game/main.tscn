@@ -13,7 +13,6 @@ script = ExtResource("1_lquwl")
 
 [node name="background" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_272bh")
-volume_db = -9.905
 autoplay = true
 
 [node name="audioplayer" type="AudioStreamPlayer2D" parent="."]

@@ -14,9 +14,10 @@ var line_points: PackedVector2Array
 
 func _process(delta: float) -> void:
 	if randi() % 80 == 0:
-		modulate = Color(1,1,1,0.8)
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "modulate", Color(1,1,1,1), 0.2)
 	else:
-		modulate = Color(1,1,1,1)
+		modulate = Color("e4f6ff", 1)
 
 func _draw() -> void:
 	if should_draw_correction_line:

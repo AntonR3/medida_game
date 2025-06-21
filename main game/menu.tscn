@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnug6bc81f0of"]
+[gd_scene load_steps=7 format=3 uid="uid://dnug6bc81f0of"]
 
 [ext_resource type="Texture2D" uid="uid://bi45jp7cigws2" path="res://assets/Sternenhimmel.svg" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://qsw6houttfqo" path="res://menu.gd" id="1_ouk20"]
+[ext_resource type="AudioStream" uid="uid://docmp7cuogv2p" path="res://menu.wav" id="3_mae5d"]
 
 [sub_resource type="Animation" id="Animation_mae5d"]
 length = 0.001
@@ -113,6 +114,11 @@ offset_top = -15.0
 offset_right = 1982.0
 offset_bottom = 1121.0
 color = Color(0, 0, 0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mae5d")
+volume_db = -6.013
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
