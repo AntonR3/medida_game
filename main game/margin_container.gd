@@ -10,6 +10,7 @@ func _get_drag_data(_position):
 	icon.texture = %TextureRect.texture
 	icon.position = icon.texture.get_size() * Vector2(-0.5,-1)
 	preview.add_child(icon)
+	preview.scale = Vector2.ONE * 0.05
 	preview.z_index = 60
 	set_drag_preview(preview)
 	return { item_id = "marker", data = data }

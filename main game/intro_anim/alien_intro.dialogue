@@ -1,0 +1,21 @@
+~ start
+do trigger_alien_talking()
+Alien: [[Gobblo|Gobbli|Gabbel Gubbel]], globussi. Ge gid Gople gof Gopolapi gaf Galete Gopolaria.
+Mutterschiff: Übersetzungsfunktion wird eingeschaltet. Gantalator gill galgede.
+do trigger_alien_talking()
+Alien: Seid gegrüßt, Erdlinge. Wir sind das Volk der Toposapiens vom Planeten Topografia. Keine Sorge, wir sind in friedlicher Mission unterwegs.
+do trigger_alien_talking()
+Alien: Wir erfassen gerade euren Planeten mit unseren Scannern, doch es fehlen uns die passenden Begriffe, um eine präzise Karte zu erstellen.
+do trigger_alien_talking()
+Alien: [[Wir bitten euch um Unterstützung|Wir benötigen dringend eure Hilfe]], damit wir die topografischen Besonderheiten eurer Erde richtig verstehen können.
+do trigger_alien_talking()
+Alien: Uns ist aufgefallen, dass im Funkverkehr und in euren Radios immer wieder Namen wie zum Beispiel "[[Dresden|Berlin|Leipzig]]", "[[Rhein|Elbe|Donau]]" oder "[[Erzgebirge|Ostsee|Rügen]]" genannt werden.
+do trigger_alien_talking()
+do start_tutorial_animation()
+Alien: Könntet ihr uns helfen, indem ihr die Pins der Namen auf die Karte zieht, um uns zu zeigen, wo diese Städte, Gewässer, Gebirge etc. liegen?
+do stop_tutorial_animation()
+do trigger_alien_talking()
+Alien: Können wir loslegen?
+- Ja, Spiel starten 
+do start_game()
+=> END

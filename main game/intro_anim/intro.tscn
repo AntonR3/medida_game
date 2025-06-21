@@ -1,0 +1,1745 @@
+[gd_scene load_steps=32 format=3 uid="uid://dl0rmioafiuw3"]
+
+[ext_resource type="Texture2D" uid="uid://dj72ijtcs6b6w" path="res://assets/cockpit.svg" id="1_7y43c"]
+[ext_resource type="Script" uid="uid://chfw1ggnuq8p3" path="res://intro_anim/intro_cutscene.gd" id="1_p1a33"]
+[ext_resource type="Texture2D" uid="uid://vc4rv4h0hgyr" path="res://assets/speechbubble.svg" id="2_dyuqh"]
+[ext_resource type="Texture2D" uid="uid://bi45jp7cigws2" path="res://assets/Sternenhimmel.svg" id="3_gj0ma"]
+[ext_resource type="Texture2D" uid="uid://c0khphyva7irn" path="res://assets/Raumschiff.svg" id="3_p1a33"]
+[ext_resource type="Texture2D" uid="uid://7gps3hm4v5sw" path="res://assets/traktorstrahl.svg" id="4_3rs70"]
+[ext_resource type="Texture2D" uid="uid://ddxbmewfit4id" path="res://assets/ufo_außen.svg" id="5_461ob"]
+[ext_resource type="Texture2D" uid="uid://18v8le1mu2vd" path="res://assets/lilaastronaut.svg" id="5_ywm83"]
+[ext_resource type="Texture2D" uid="uid://ddyp5t1r8oom0" path="res://assets/ufo_innen.svg" id="6_aq85c"]
+[ext_resource type="Texture2D" uid="uid://cr72qfn403v1" path="res://assets/greenastronaut.svg" id="6_xecal"]
+[ext_resource type="Texture2D" uid="uid://b2dtnnbecuys8" path="res://assets/blueastronaut.svg" id="7_46ram"]
+[ext_resource type="Texture2D" uid="uid://dmj1q146h2t3p" path="res://assets/badalien.svg" id="7_dyuqh"]
+[ext_resource type="Texture2D" uid="uid://dqxwedyjd3pfh" path="res://assets/point-hand.svg" id="11_g1gpk"]
+[ext_resource type="Texture2D" uid="uid://7po6a4fsgx1e" path="res://deutschland_karte.svg" id="12_wnw0q"]
+[ext_resource type="Texture2D" uid="uid://cst2mp2sal024" path="res://loc_icon.svg" id="14_wnw0q"]
+
+[sub_resource type="Animation" id="Animation_vvwm2"]
+resource_name = "Chapter_01"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Astronaut_Cockpit/Cockpit:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1000, 337), Vector2(1050, 348), Vector2(1000, 337), Vector2(1050, 332), Vector2(1000, 337), Vector2(1050, 348), Vector2(1000, 337), Vector2(1050, 332), Vector2(1000, 337), Vector2(1050, 348), Vector2(573, 337)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Astronaut_Cockpit/Cockpit:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0174533, 0.0, 0.0174533, 0.0, -0.0174533, 0.0, 0.0174533, 0.0, -0.0174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Astronaut_Cockpit/Speechbubble:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.933333, 1.13333, 1.33333, 1.53333, 1.73333, 1.93333, 2.13333, 2.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.062875, 0.042), Vector2(0.066, 0.044), Vector2(0.063, 0.042), Vector2(0.06, 0.04), Vector2(0.062875, 0.042), Vector2(0.066, 0.044), Vector2(0.063, 0.042), Vector2(0.06, 0.04)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Astronaut_Cockpit/Speechbubble:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Astronaut_Cockpit/RichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.12479, 2.30817),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Astronaut_Cockpit:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Außenszene:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Alien_Cockpit:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Astronaut_Cockpit/Cockpit/Blueastronaut:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.31, 1.54, 1.74, 1.93333, 2.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-4348.84, 1504.24), Vector2(-4011.15, 1556.1), Vector2(-3377.48, 1570.48), Vector2(-2856.07, 1583.97), Vector2(-2460.44, 1580.97), Vector2(-2000, 1400)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Astronaut_Cockpit/Cockpit/Greenastronaut:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.31, 1.47, 1.63, 1.8, 1.96, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4152.88, 1642.39), Vector2(3980.95, 1676.54), Vector2(3404.96, 1678.72), Vector2(2752.13, 1452.58), Vector2(2228.86, 1635.21), Vector2(1886.04, 1603.09), Vector2(1200, 1400)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Astronaut_Cockpit/Cockpit/Lilaastronaut:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.31, 1.69, 1.79, 2.05, 2.31, 2.53),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5352.71, 1668.58), Vector2(4866.37, 1704.25), Vector2(3745.62, 1641.86), Vector2(3534.2, 1640.52), Vector2(3287.3, 1632.33), Vector2(2969.57, 1650.56), Vector2(2300, 1600)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Astronaut_Cockpit/Cockpit/Blueastronaut:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.31, 1.54, 1.74, 1.93333, 2.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.164061, -0.162316, 0.328122, 0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Astronaut_Cockpit/Cockpit/Greenastronaut:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.31, 1.47, 1.63, 1.8, 1.96, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.164061, 0.326377, -0.164061, 0.326377, 0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Astronaut_Cockpit/Cockpit/Lilaastronaut:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1.31, 1.69, 1.79, 2.05, 2.31, 2.53),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.00231535, 0.00231535, 0.00231535, 0.165806, -0.162316, 0.328122, 0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Astronaut_Cockpit/Cockpit/Blueastronaut:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 1.31),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.961018, 0.961018), Vector2(0.961018, 0.961018)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Astronaut_Cockpit/Cockpit/Greenastronaut:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 1.31),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.833167, 0.833167), Vector2(0.833167, 0.833167)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Astronaut_Cockpit/Cockpit/Lilaastronaut:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 1.31),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.973564, 0.973564), Vector2(0.973564, 0.973564)]
+}
+
+[sub_resource type="Animation" id="Animation_g1gpk"]
+resource_name = "Chapter_02"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Außenszene:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Außenszene/Raumschiff:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.00664, 4.26667, 5.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1300, 700), Vector2(950, 700), Vector2(970, 700), Vector2(970, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Außenszene/Raumschiff:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 3.06667, 3.88368, 5.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.816814, 0.652753, 0.326377, 0.326377, 3.42783]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Außenszene/Traktorstrahl:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.62671),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Außenszene/UfoAußen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.99665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Außenszene/UfoAußen:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.99665, 2.50981, 3.23333, 3.3, 3.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32, -130), Vector2(180, 30), Vector2(960, 400), Vector2(990, 410), Vector2(960, 400)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Außenszene/UfoAußen:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.99665, 3.23333, 3.30754, 3.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.523599, 0.0, -0.0523599, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Außenszene/Traktorstrahl:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.62671, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.0455083, 0.0108114), Vector2(0.142435, 0.181787)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Außenszene/Traktorstrahl:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3.63333, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(940, 480), Vector2(940, 620)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Außenszene/Traktorstrahl:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3.64039, 3.94148, 4.22888, 4.44785, 4.76262, 4.94053, 5.14582, 5.36479, 5.65219, 5.80273, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.407843), Color(1, 1, 1, 0.623529), Color(1, 1, 1, 0.2), Color(1, 1, 1, 0.443137), Color(1, 1, 1, 0.176471), Color(1, 1, 1, 0.584314), Color(1, 1, 1, 0.298039), Color(1, 1, 1, 0.619608), Color(1, 1, 1, 0.407843), Color(1, 1, 1, 0.584314), Color(1, 1, 1, 0.254902)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Astronaut_Cockpit:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Alien_Cockpit:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Außenszene/Raumschiff:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 4.22093, 5.53182),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.046913, 0.046913), Vector2(0.046913, 0.046913), Vector2(0.03, 0.03)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Sternenhimmel:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(950, 550)]
+}
+
+[sub_resource type="Animation" id="Animation_wnw0q"]
+resource_name = "Chapter_03"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Außenszene:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Astronaut_Cockpit:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Alien_Cockpit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Alien_Cockpit/UfoInnen:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(900, 570), Vector2(910, 570), Vector2(900, 570), Vector2(910, 570), Vector2(900, 570), Vector2(910, 570), Vector2(900, 570)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Alien_Cockpit/UfoInnen:rotation")
+tracks/4/interp = 4
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0174533, 0.0, 0.0174533, 0.0, -0.0174533, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Alien_Cockpit/UfoInnen:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.16, 0.108)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Alien_Cockpit/Greenastronaut:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4.01, 5, 6.02, 6.98, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-160, 400), Vector2(-140, 400), Vector2(240, 450), Vector2(620, 400), Vector2(1000, 450), Vector2(1380, 400), Vector2(1760, 450), Vector2(2140, 400)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Alien_Cockpit/Greenastronaut:rotation")
+tracks/7/interp = 3
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2, 3, 4.01, 5, 6.02, 6.98, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.816814, 2.12057, 3.55349, 5.11905, 0.431096, 1.95826]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sternenhimmel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = false
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1000, 550), Vector2(3000, 550)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sternenhimmel2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = false
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1000, 550), Vector2(1000, 550)]
+}
+
+[sub_resource type="Animation" id="Animation_gj0ma"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Astronaut_Cockpit/Cockpit:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Astronaut_Cockpit/Cockpit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(573, 337)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Astronaut_Cockpit/Speechbubble:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.062875, 0.042)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Astronaut_Cockpit/Speechbubble:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Astronaut_Cockpit/RichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Astronaut_Cockpit:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Außenszene:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Außenszene/Raumschiff:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(997, 509)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Außenszene/Raumschiff:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.490438]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Außenszene/Traktorstrahl:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Außenszene/UfoAußen:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Außenszene/UfoAußen:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, -83)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Außenszene/UfoAußen:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Außenszene/Traktorstrahl:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.211806, 0.213209)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Außenszene/Traktorstrahl:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(635, 184)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Außenszene/Traktorstrahl:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.407843)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Alien_Cockpit:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Alien_Cockpit/UfoInnen/Badalien:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Alien_Cockpit/UfoInnen:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(545, 319)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Alien_Cockpit/UfoInnen:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Alien_Cockpit/UfoInnen:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.107333, 0.0727692)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Alien_Cockpit/UfoInnen/Badalien:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4250.03, 3006.06)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Alien_Cockpit/UfoInnen/Badalien:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.257168, 0.332182)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("TransitionRect:color")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Außenszene/Raumschiff:scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.046913, 0.046913)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Astronaut_Cockpit/Cockpit/Blueastronaut:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4348.84, 1504.24)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Astronaut_Cockpit/Cockpit/Greenastronaut:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4152.88, 1642.39)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Astronaut_Cockpit/Cockpit/Lilaastronaut:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5352.71, 1668.58)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Astronaut_Cockpit/Cockpit/Blueastronaut:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Astronaut_Cockpit/Cockpit/Greenastronaut:rotation")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Astronaut_Cockpit/Cockpit/Lilaastronaut:rotation")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.00231535]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Astronaut_Cockpit/Cockpit/Blueastronaut:scale")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.961018, 0.961018)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Astronaut_Cockpit/Cockpit/Greenastronaut:scale")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.833167, 0.833167)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Astronaut_Cockpit/Cockpit/Lilaastronaut:scale")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.973564, 0.973564)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Alien_Cockpit/Greenastronaut:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-125.33, 282.995)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Alien_Cockpit/Greenastronaut:rotation")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Sternenhimmel:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(584, 321)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("Sternenhimmel2:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-720.975, 321)]
+}
+
+[sub_resource type="Animation" id="Animation_dyuqh"]
+resource_name = "alien_idle"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien_Cockpit/UfoInnen/Badalien:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4250.03, 3006.06), Vector2(4249.48, 3113.93), Vector2(4250.03, 3006.06), Vector2(4249.48, 3113.93)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alien_Cockpit/UfoInnen/Badalien:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.257168, 0.332182), Vector2(0.257168, 0.314813), Vector2(0.257168, 0.332182), Vector2(0.257168, 0.314813)]
+}
+
+[sub_resource type="Animation" id="Animation_p1a33"]
+resource_name = "alien_talking"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien_Cockpit/UfoInnen/Badalien:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 0.466667, 0.564671, 0.646235, 0.784266, 0.890926, 0.978764, 1.0666, 1.18581, 1.27365, 1.36149, 1.42423, 1.51834, 1.6, 1.66001, 1.76667, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0349066, 0.0, -0.0872665, 0.0, 0.0349066, -0.0872665, 0.0349066, 0.0, 0.0349066, 0.0, 0.0349066, 0.0349066, -0.0872665, 0.0, 0.0349066, -0.0872665, 0.0349066, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ywm83"]
+_data = {
+&"Chapter_01": SubResource("Animation_vvwm2"),
+&"Chapter_02": SubResource("Animation_g1gpk"),
+&"Chapter_03": SubResource("Animation_wnw0q"),
+&"RESET": SubResource("Animation_gj0ma"),
+&"alien_idle": SubResource("Animation_dyuqh"),
+&"alien_talking": SubResource("Animation_p1a33")
+}
+
+[sub_resource type="Animation" id="Animation_ywm83"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7903.23, 0.000411987)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.049143, 0.049143)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Marker:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5241.94, 188.172)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.482353, 1, 1, 0.556863)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Marker:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26.8817, 26.8817)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(107.525, -80.6448)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_46ram"]
+resource_name = "pin_tutorial"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.666667, 0.776667, 1.1, 1.57, 1.64, 1.86667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-7903.23, 0.000411987), Vector2(-6451.61, -80.6448), Vector2(-6451.61, -80.6448), Vector2(-4381.72, -1451.61), Vector2(-537.637, -456.989), Vector2(-537.637, -456.989), Vector2(-5806.45, -53.763)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.666667, 0.776667, 1.57, 1.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.30914, 0.30914), Vector2(0.30914, 0.30914), Vector2(0.208333, 0.208333), Vector2(0.208333, 0.208333), Vector2(0.30914, 0.30914)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Marker:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.776667, 1.1, 1.57),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-5241.94, 188.172), Vector2(-5241.94, 188.172), Vector2(-3172.04, -1182.8), Vector2(672.042, -188.172)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.993661, 1.50215),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.482353, 1, 1, 0.556863), Color(0.482353, 1, 1, 0.784314), Color(0.482353, 1, 1, 0.556863), Color(0.482353, 1, 1, 0.784314)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Marker:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.666667, 0.776667, 1.57, 1.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_otw6n"]
+resource_name = "pin_tutorial_end"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.157337),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-7903.23, 0.000411987), Vector2(-7903.23, 0.000411987)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.157337),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.30914, 0.30914), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Marker:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.162002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-5241.94, 188.172), Vector2(-5241.94, 188.172)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Marker:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.162002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(107.525, -80.6448), Vector2(107.525, -80.6448)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xecal"]
+resource_name = "pin_tutorial"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-7903.23, 0.000411987), Vector2(-7903.23, 0.000411987), Vector2(-7903.23, 0.000411987)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Point-hand:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.049143, 0.049143), Vector2(0.369624, 0.369624), Vector2(0.30914, 0.30914)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.200598, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(107.525, -80.6448), Vector2(107.525, -80.6448), Vector2(107.525, -80.6448)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.200598, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0672391, 0.067239), Vector2(1.0995, 1.0995), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Marker:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.195933, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-5241.94, 188.172), Vector2(-5241.94, 188.172), Vector2(-5241.94, 188.172)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Marker:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.195933, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.5, 2.5), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Alien_Cockpit/UfoInnen/Tutorial/Dtlkarte:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_csjiu"]
+_data = {
+&"RESET": SubResource("Animation_ywm83"),
+&"pin_tutorial": SubResource("Animation_46ram"),
+&"pin_tutorial_end": SubResource("Animation_otw6n"),
+&"pin_tutorial_start": SubResource("Animation_xecal")
+}
+
+[sub_resource type="Animation" id="Animation_461ob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3rs70"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aq85c"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvwm2"]
+_data = {
+&"RESET": SubResource("Animation_461ob"),
+&"fade_in": SubResource("Animation_3rs70"),
+&"fade_out": SubResource("Animation_aq85c")
+}
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_p1a33")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ywm83")
+}
+next/alien_idle = &"alien_talking"
+next/alien_talking = &"alien_idle"
+blend_times = [&"alien_idle", &"alien_idle", 1.0, &"alien_idle", &"alien_talking", 1.0, &"alien_talking", &"alien_idle", 1.0, &"alien_talking", &"alien_talking", 1.0]
+
+[node name="AlienAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ywm83")
+}
+autoplay = "alien_idle"
+next/Chapter_01 = &"Chapter_02"
+next/Chapter_02 = &"Chapter_03"
+next/alien_idle = &"alien_talking"
+next/alien_talking = &"alien_idle"
+blend_times = [&"alien_idle", &"alien_idle", 1.0, &"alien_idle", &"alien_talking", 1.0, &"alien_talking", &"alien_idle", 1.0, &"alien_talking", &"alien_talking", 1.0]
+
+[node name="TutorialAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_csjiu")
+}
+next/pin_tutorial_start = &"pin_tutorial"
+blend_times = [&"pin_tutorial", &"pin_tutorial_end", 1.0]
+
+[node name="TransitionAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vvwm2")
+}
+
+[node name="Sternenhimmel" type="Sprite2D" parent="."]
+position = Vector2(584, 321)
+scale = Vector2(0.126221, 0.0751223)
+texture = ExtResource("3_gj0ma")
+
+[node name="Sternenhimmel2" type="Sprite2D" parent="."]
+position = Vector2(-720.975, 321)
+scale = Vector2(0.125551, 0.0747236)
+texture = ExtResource("3_gj0ma")
+
+[node name="Astronaut_Cockpit" type="Node2D" parent="."]
+
+[node name="Cockpit" type="Sprite2D" parent="Astronaut_Cockpit"]
+position = Vector2(573, 337)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("1_7y43c")
+
+[node name="Lilaastronaut" type="Sprite2D" parent="Astronaut_Cockpit/Cockpit"]
+position = Vector2(5352.71, 1668.58)
+rotation = 0.00231535
+scale = Vector2(0.973564, 0.973564)
+texture = ExtResource("5_ywm83")
+
+[node name="Greenastronaut" type="Sprite2D" parent="Astronaut_Cockpit/Cockpit"]
+position = Vector2(4152.88, 1642.39)
+scale = Vector2(0.833167, 0.833167)
+texture = ExtResource("6_xecal")
+
+[node name="Blueastronaut" type="Sprite2D" parent="Astronaut_Cockpit/Cockpit"]
+position = Vector2(-4348.84, 1504.24)
+scale = Vector2(0.961018, 0.961018)
+texture = ExtResource("7_46ram")
+
+[node name="Speechbubble" type="Sprite2D" parent="Astronaut_Cockpit"]
+position = Vector2(1326, 305)
+rotation = -0.164061
+scale = Vector2(0.062875, 0.042)
+texture = ExtResource("2_dyuqh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Astronaut_Cockpit"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1116.0
+offset_top = 182.0
+offset_right = 1566.0
+offset_bottom = 385.0
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 36
+text = "Willkommen Austronauten auf eurer Mondmission!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Außenszene" type="Node2D" parent="."]
+
+[node name="Raumschiff" type="Sprite2D" parent="Außenszene"]
+position = Vector2(997, 509)
+rotation = 0.490438
+scale = Vector2(0.046913, 0.046913)
+texture = ExtResource("3_p1a33")
+
+[node name="Traktorstrahl" type="Sprite2D" parent="Außenszene"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(635, 184)
+scale = Vector2(0.211806, 0.213209)
+texture = ExtResource("4_3rs70")
+
+[node name="UfoAußen" type="Sprite2D" parent="Außenszene"]
+position = Vector2(32, -83)
+scale = Vector2(0.0498, 0.0498)
+texture = ExtResource("5_461ob")
+
+[node name="Alien_Cockpit" type="Node2D" parent="."]
+visible = false
+position = Vector2(-27.67, -64.995)
+
+[node name="Greenastronaut" type="Sprite2D" parent="Alien_Cockpit"]
+position = Vector2(-125.33, 282.995)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("6_xecal")
+
+[node name="UfoInnen" type="Sprite2D" parent="Alien_Cockpit"]
+position = Vector2(545, 319)
+scale = Vector2(0.107333, 0.0727692)
+texture = ExtResource("6_aq85c")
+
+[node name="Tutorial" type="Node2D" parent="Alien_Cockpit/UfoInnen"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1326.87, -687.173)
+scale = Vector2(0.346585, 0.511205)
+
+[node name="ColorRect" type="ColorRect" parent="Alien_Cockpit/UfoInnen/Tutorial"]
+offset_left = -12577.0
+offset_top = -4301.0
+offset_right = 6200.0
+offset_bottom = 4355.0
+color = Color(0.482353, 1, 1, 0.556863)
+
+[node name="Dtlkarte" type="Sprite2D" parent="Alien_Cockpit/UfoInnen/Tutorial"]
+position = Vector2(107.525, -80.6448)
+texture = ExtResource("12_wnw0q")
+
+[node name="Point-hand" type="Sprite2D" parent="Alien_Cockpit/UfoInnen/Tutorial"]
+visible = false
+position = Vector2(-7903.23, 0.000411987)
+scale = Vector2(0.049143, 0.049143)
+texture = ExtResource("11_g1gpk")
+
+[node name="Marker" type="Sprite2D" parent="Alien_Cockpit/UfoInnen/Tutorial"]
+position = Vector2(-5241.94, 188.172)
+scale = Vector2(26.8817, 26.8817)
+texture = ExtResource("14_wnw0q")
+
+[node name="Badalien" type="Sprite2D" parent="Alien_Cockpit/UfoInnen"]
+position = Vector2(4250.03, 3006.06)
+scale = Vector2(0.257168, 0.332182)
+skew = 0.00517631
+texture = ExtResource("7_dyuqh")
+
+[node name="Blueastronaut" type="Sprite2D" parent="Alien_Cockpit/UfoInnen"]
+position = Vector2(-4046.57, 3311.77)
+scale = Vector2(0.920034, 1.35703)
+texture = ExtResource("7_46ram")
+
+[node name="Lilaastronaut" type="Sprite2D" parent="Alien_Cockpit/UfoInnen"]
+position = Vector2(-2993.77, 3407.97)
+scale = Vector2(0.937891, 1.38337)
+texture = ExtResource("5_ywm83")
+
+[node name="TransitionRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)

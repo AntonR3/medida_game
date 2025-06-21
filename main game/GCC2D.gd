@@ -17,7 +17,7 @@ var effective_limit_right = 10000000
 var effective_limit_top = -10000000
 var effective_limit_bottom = 10000000
 
-var boundary = Rect2(0,0,1750,1250)
+var boundary = Rect2(0,0,2800,2000)
 
 func set_camera_position(p):
 	var camera_limits;

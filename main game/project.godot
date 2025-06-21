@@ -11,22 +11,44 @@ config_version=5
 [application]
 
 config/name="prototype"
-run/main_scene="uid://bljxg5lihsjy1"
+run/main_scene="uid://dnug6bc81f0of"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [autoload]
 
 InputManager="*res://GDTIM-4.x-v2_1_2/InputManager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://intro_anim/balloon.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [importer_defaults]
 
 texture={
-&"svg/scale": 10.0
+&"svg/scale": 15.0
+}
+animation_library={
+&"animation/fps": 60.0
 }
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://intro_anim/alien_intro.dialogue")
 
 [rendering]
 

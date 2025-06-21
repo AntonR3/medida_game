@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bljxg5lihsjy1"]
+[gd_scene load_steps=8 format=3 uid="uid://bljxg5lihsjy1"]
 
 [ext_resource type="Script" uid="uid://b0xpasud34p2b" path="res://main.gd" id="1_lquwl"]
-[ext_resource type="Texture2D" uid="uid://rh5usbu6lo53" path="res://dtlkarte.svg" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://7po6a4fsgx1e" path="res://deutschland_karte.svg" id="2_7mycd"]
+[ext_resource type="AudioStream" uid="uid://sjmmq72k4bhk" path="res://AMB_SC-FI_SPACESHIP(L).wav" id="2_272bh"]
 [ext_resource type="Script" uid="uid://curp82rwfi0d2" path="res://map.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ivho25spx00" path="res://word_container.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://d2fxny5lp56yo" path="res://GCC2D.tscn" id="4_272bh"]
@@ -10,6 +11,14 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lquwl")
 
+[node name="background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_272bh")
+volume_db = -9.905
+autoplay = true
+
+[node name="audioplayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = 4.0
+
 [node name="Node" type="Node" parent="."]
 
 [node name="Label_Timer" type="Timer" parent="Node"]
@@ -17,50 +26,50 @@ wait_time = 2.0
 one_shot = true
 
 [node name="SubViewPortContainer" type="SubViewportContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="SubViewPort" type="SubViewport" parent="SubViewPortContainer"]
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="map" type="TextureRect" parent="SubViewPortContainer/SubViewPort"]
-offset_top = 1250.0
+offset_top = 2000.0
 offset_right = 5000.0
-offset_bottom = 8250.0
+offset_bottom = 9000.0
 rotation = -1.5708
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_7mycd")
 script = ExtResource("3_lquwl")
 
 [node name="GCC2D" parent="SubViewPortContainer/SubViewPort" instance=ExtResource("4_272bh")]
-position = Vector2(920, 573)
+position = Vector2(960, 540)
 rotation_gesture = 0
 
 [node name="Score_Tracker" type="Label" parent="."]
-offset_left = 916.0
-offset_top = 7.0
-offset_right = 1146.0
-offset_bottom = 75.0
+offset_left = 1650.0
+offset_top = 38.0
+offset_right = 1880.0
+offset_bottom = 121.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.277)
 theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 text = "Punkte"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_Popup" type="Label" parent="."]
-offset_left = 224.0
-offset_top = 288.0
-offset_right = 924.0
-offset_bottom = 368.0
+offset_left = 610.0
+offset_top = 495.0
+offset_right = 1310.0
+offset_bottom = 585.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.277)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 text = "Distanz"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -73,10 +82,11 @@ script = ExtResource("5_7mycd")
 
 [node name="unten" parent="Control" instance=ExtResource("4_1bvp3")]
 layout_mode = 0
-offset_left = 351.0
-offset_top = 508.0
-offset_right = 801.0
-offset_bottom = 648.0
+offset_left = 660.0
+offset_top = 860.0
+offset_right = 1260.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(300, 120)
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
@@ -84,22 +94,22 @@ number = 2
 
 [node name="oben" parent="Control" instance=ExtResource("4_1bvp3")]
 layout_mode = 0
-offset_left = 351.0
-offset_top = 20.0
-offset_right = 801.0
-offset_bottom = 160.0
+offset_left = 660.0
+offset_right = 1260.0
 rotation = 3.14159
+pivot_offset = Vector2(300, 110)
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
 
 [node name="links" parent="Control" instance=ExtResource("4_1bvp3")]
 layout_mode = 0
-offset_left = -145.0
-offset_top = 264.0
-offset_right = 305.0
-offset_bottom = 404.0
+offset_left = -190.0
+offset_top = 430.0
+offset_right = 410.0
+offset_bottom = 650.0
 rotation = 1.5708
+pivot_offset = Vector2(300, 110)
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
@@ -107,11 +117,12 @@ number = 3
 
 [node name="rechts" parent="Control" instance=ExtResource("4_1bvp3")]
 layout_mode = 0
-offset_left = 847.0
-offset_top = 264.0
-offset_right = 1297.0
-offset_bottom = 404.0
+offset_left = 1510.0
+offset_top = 430.0
+offset_right = 2110.0
+offset_bottom = 650.0
 rotation = 4.71239
+pivot_offset = Vector2(300, 110)
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
