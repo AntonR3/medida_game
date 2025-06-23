@@ -1,134 +1,134 @@
 {
   "1": {
-    "NAME": "Essen",
-    "POSITION_X": 834,
-    "POSITION_Y": 3224,
-    "SCORE": null
+	"NAME": "Essen",
+	"POSITION_X": 834,
+	"POSITION_Y": 3224,
+	"SCORE": null
   },
   "2": {
-    "NAME": "Dortmund",
-    "POSITION_X": 1133,
-    "POSITION_Y": 3204,
-    "SCORE": null
+	"NAME": "Dortmund",
+	"POSITION_X": 1133,
+	"POSITION_Y": 3204,
+	"SCORE": null
   },
   "3": {
-    "NAME": "Düsseldorf",
-    "POSITION_X": 781,
-    "POSITION_Y": 3426,
-    "SCORE": null
+	"NAME": "Düsseldorf",
+	"POSITION_X": 781,
+	"POSITION_Y": 3426,
+	"SCORE": null
   },
   "4": {
-    "NAME": "Köln",
-    "POSITION_X": 816,
-    "POSITION_Y": 3718,
-    "SCORE": null
+	"NAME": "Köln",
+	"POSITION_X": 816,
+	"POSITION_Y": 3718,
+	"SCORE": null
   },
   "5": {
-    "NAME": "Wiesbaden",
-    "POSITION_X": 1440,
-    "POSITION_Y": 4400,
-    "SCORE": null
+	"NAME": "Wiesbaden",
+	"POSITION_X": 1440,
+	"POSITION_Y": 4400,
+	"SCORE": null
   },
   "6": {
-    "NAME": "Mainz",
-    "POSITION_X": 1392,
-    "POSITION_Y": 4525,
-    "SCORE": null
+	"NAME": "Mainz",
+	"POSITION_X": 1392,
+	"POSITION_Y": 4525,
+	"SCORE": null
   },
   "7": {
-    "NAME": "Frankfurt",
-    "POSITION_X": 1741,
-    "POSITION_Y": 4407,
-    "SCORE": null
+	"NAME": "Frankfurt",
+	"POSITION_X": 1741,
+	"POSITION_Y": 4407,
+	"SCORE": null
   },
   "8": {
-    "NAME": "Nürnberg",
-    "POSITION_X": 2909,
-    "POSITION_Y": 4999,
-    "SCORE": null
+	"NAME": "Nürnberg",
+	"POSITION_X": 2909,
+	"POSITION_Y": 4999,
+	"SCORE": null
   },
   "9": {
-    "NAME": "Stuttgart",
-    "POSITION_X": 1917,
-    "POSITION_Y": 5511,
-    "SCORE": null
+	"NAME": "Stuttgart",
+	"POSITION_X": 1917,
+	"POSITION_Y": 5511,
+	"SCORE": null
   },
   "10": {
-    "NAME": "München",
-    "POSITION_X": 3197,
-    "POSITION_Y": 6162,
-    "SCORE": null
+	"NAME": "München",
+	"POSITION_X": 3197,
+	"POSITION_Y": 6162,
+	"SCORE": null
   },
   "11": {
-    "NAME": "Kiel",
-    "POSITION_X": 2534,
-    "POSITION_Y": 853,
-    "SCORE": null
+	"NAME": "Kiel",
+	"POSITION_X": 2534,
+	"POSITION_Y": 853,
+	"SCORE": null
   },
   "12": {
-    "NAME": "Hamburg",
-    "POSITION_X": 2407,
-    "POSITION_Y": 1505,
-    "SCORE": null
+	"NAME": "Hamburg",
+	"POSITION_X": 2407,
+	"POSITION_Y": 1505,
+	"SCORE": null
   },
   "13": {
-    "NAME": "Bremen",
-    "POSITION_X": 1801,
-    "POSITION_Y": 1853,
-    "SCORE": null
+	"NAME": "Bremen",
+	"POSITION_X": 1801,
+	"POSITION_Y": 1853,
+	"SCORE": null
   },
   "14": {
-    "NAME": "Hannover",
-    "POSITION_X": 2279,
-    "POSITION_Y": 2439,
-    "SCORE": null
+	"NAME": "Hannover",
+	"POSITION_X": 2279,
+	"POSITION_Y": 2439,
+	"SCORE": null
   },
   "15": {
-    "NAME": "Magdeburg",
-    "POSITION_X": 3275,
-    "POSITION_Y": 2641,
-    "SCORE": null
+	"NAME": "Magdeburg",
+	"POSITION_X": 3275,
+	"POSITION_Y": 2641,
+	"SCORE": null
   },
   "16": {
-    "NAME": "Erfurt",
-    "POSITION_X": 2982,
-    "POSITION_Y": 3723,
-    "SCORE": null
+	"NAME": "Erfurt",
+	"POSITION_X": 2982,
+	"POSITION_Y": 3723,
+	"SCORE": null
   },
   "17": {
-    "NAME": "Schwerin",
-    "POSITION_X": 3128,
-    "POSITION_Y": 1465,
-    "SCORE": null
+	"NAME": "Schwerin",
+	"POSITION_X": 3128,
+	"POSITION_Y": 1465,
+	"SCORE": null
   },
   "18": {
-    "NAME": "Rostock",
-    "POSITION_X": 3462,
-    "POSITION_Y": 1073,
-    "SCORE": null
+	"NAME": "Rostock",
+	"POSITION_X": 3462,
+	"POSITION_Y": 1073,
+	"SCORE": null
   },
   "19": {
-    "NAME": "Berlin",
-    "POSITION_X": 4154,
-    "POSITION_Y": 2404,
-    "SCORE": null
+	"NAME": "Berlin",
+	"POSITION_X": 4154,
+	"POSITION_Y": 2404,
+	"SCORE": null
   },
   "20": {
-    "NAME": "Potsdam",
-    "POSITION_X": 3934,
-    "POSITION_Y": 2585,
-    "SCORE": null
+	"NAME": "Potsdam",
+	"POSITION_X": 3934,
+	"POSITION_Y": 2585,
+	"SCORE": null
   },
   "21": {
-    "NAME": "Leipzig",
-    "POSITION_X": 3701,
-    "POSITION_Y": 3421,
-    "SCORE": null
+	"NAME": "Leipzig",
+	"POSITION_X": 3701,
+	"POSITION_Y": 3421,
+	"SCORE": null
   },
   "22": {
-    "NAME": "Dresden",
-    "POSITION_X": 4171,
-    "POSITION_Y": 3482,
-    "SCORE": null
+	"NAME": "Dresden",
+	"POSITION_X": 4171,
+	"POSITION_Y": 3482,
+	"SCORE": null
   }
 }

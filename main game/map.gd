@@ -12,6 +12,12 @@ var polygon_points: PackedVector2Array
 var should_draw_line
 var line_points: PackedVector2Array
 
+func _process(delta: float) -> void:
+	if randi() % 80 == 0:
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "modulate", Color(1,1,1,1), 0.2)
+	else:
+		modulate = Color("e4f6ff", 1)
 
 func _draw() -> void:
 	if should_draw_correction_line:
@@ -27,7 +33,7 @@ func _can_drop_data(at_position, data):
 
 func _drop_data(at_position, data):
 	var component = TextureRect.new()
-	component.texture = load("res://marker.png")
+	component.texture = load("res://loc_icon.png")
 	component.position = at_position - (component.texture.get_size() * Vector2(1,2))
 	component.size *= 2
 	add_child(component)
@@ -38,7 +44,7 @@ func _drop_data(at_position, data):
 
 func drop_correct_marker(pos: Vector2):
 	var component = TextureRect.new()
-	component.texture = load("res://marker.png")
+	component.texture = load("res://loc_icon.png")
 	component.position = pos - (component.texture.get_size() * Vector2(1,2))
 	component.size *= 2
 	add_child(component)

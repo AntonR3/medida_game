@@ -6,6 +6,8 @@ signal game_end
 #variables for game logic
 var score: int
 var counter: int
+var pos_sound = preload("res://Retro Event Acute 08.wav")
+var neg_sound = preload("res://Retro Event Wrong Simple 03.wav")
 
 #Dictionaries for Markers
 var points: Dictionary
@@ -103,6 +105,8 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	var score_update = calc_score(dist)
 	set_pop_up_score(str(score_update))
 	
+	set_score_in_dict(marker_id, score_update)
+	
 	fill_container(get_node("Control").get_container(container_id))
 	
 	if counter == 10:
@@ -122,13 +126,16 @@ func calc_score(dist: float) -> int:
 	if dist <= 100:
 		score += 10
 		$Score_Tracker.text = str(score)
+		play_pos()
 		return 10
 	elif dist > 300:
 		$Score_Tracker.text = str(score)
+		play_neg()
 		return 0
 	else:
 		score += int(floor((300-dist)/20))
 		$Score_Tracker.text = str(score)
+		play_pos()
 		return int(floor((300-dist)/20))
 
 
@@ -227,9 +234,38 @@ func fill_container(container: MarginContainer):
 
 func _on_label_timer_timeout() -> void:
 	$Score_Popup.hide()
+	
+func set_score_in_dict(marker_id: int, score: int):
+	if marker_id <= 22:
+		if points[str(marker_id)]["SCORE"] != null:
+			if points[str(marker_id)]["SCORE"] < score or points[str(marker_id)]["SCORE"] == null:
+				points[str(marker_id)]["SCORE"] = score
+		else:
+			points[str(marker_id)]["SCORE"] = score	
+	elif marker_id > 22 and marker_id <= 40:
+		if polygons[str(marker_id)]["SCORE"] != null:
+			if polygons[str(marker_id)]["SCORE"] < score:
+				polygons[str(marker_id)]["SCORE"] = score
+		else:
+			polygons[str(marker_id)]["SCORE"] = score
+
+	elif marker_id > 40 and marker_id <= 49:
+		if lines[str(marker_id)]["SCORE"] != null:
+			if lines[str(marker_id)]["SCORE"] < score:
+				lines[str(marker_id)]["SCORE"] = score
+		else:
+			lines[str(marker_id)]["SCORE"] = score
+	else:
+		push_error("marker not found in dictionaries")
 
 func _on_game_end() -> void:
-	#add logic for the end of the game
-	#maybe make a scene where 
 	await get_tree().create_timer(2.0).timeout
-	get_tree().quit(0)
+	get_tree().change_scene_to_file("res://menu.tscn")
+
+func play_pos():
+	$audioplayer.stream = pos_sound
+	$audioplayer.play()
+
+func play_neg():
+	$audioplayer.stream = neg_sound
+	$audioplayer.play()
