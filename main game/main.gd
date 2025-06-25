@@ -19,12 +19,16 @@ var open_points: Array
 var open_polygons: Array
 var open_lines: Array
 
+var placed_points: Dictionary
+
 #json paths for parsing
 var json_path_points = "res://data/medida_game_data_points.json"
 var json_path_polygons = "res://data/medida_game_data_polygons.json"
 var json_path_lines = "res://data/medida_game_data_lines.json"
 
 func _ready() -> void:
+	placed_points = {}
+	$Panel.hide()
 	$Fade.show()
 	var tween = get_tree().create_tween()
 	tween.tween_property($Fade, "color", Color(0,0,0,0), 1).finished.connect(func():
@@ -78,7 +82,6 @@ func initial_fill_containers():
 
 func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	counter += 1
-	print(counter)
 	var container_id = int(data.x)
 	var marker_id = int(data.y)
 	
@@ -87,11 +90,17 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	var correct_pos
 	var dist
 	
+	var name
+	
 	if marker_id <= 22:
 		correct_pos = Vector2(points[str(marker_id)]["POSITION_X"], points[str(marker_id)]["POSITION_Y"])
 		dist = int(pos.distance_to(correct_pos))
 		$SubViewPortContainer/SubViewPort/map.drop_correct_marker(correct_pos)
 		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
+
+		name = points[str(marker_id)]["NAME"]
+
+		
 	elif marker_id > 22 and marker_id <= 40:
 		var polygon_points = parse_vector2_list(polygons[str(marker_id)]["POINTS"])
 		correct_tuple = get_distance_polygon_point(polygon_points, pos)
@@ -99,6 +108,8 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 		dist = int(correct_tuple[0])
 		$SubViewPortContainer/SubViewPort/map.draw_correct_polygon(polygon_points)
 		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
+		name = polygons[str(marker_id)]["NAME"]
+		
 	elif marker_id > 40 and marker_id <= 49:
 		var line_points = parse_vector2_list(lines[str(marker_id)]["POINTS"])
 		correct_tuple = get_distance_line_point(line_points, pos)
@@ -106,6 +117,8 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 		dist = int(correct_tuple[0])
 		$SubViewPortContainer/SubViewPort/map.draw_correct_line(line_points)
 		$SubViewPortContainer/SubViewPort/map.draw_correction_line(pos, correct_pos)
+		name = lines[str(marker_id)]["NAME"]
+		
 	else:
 		push_error("marker not found in dictionaries")
 	var score_update = calc_score(dist)
@@ -114,6 +127,11 @@ func _on_marker_placed(pos: Vector2, data: Vector2) -> void:
 	set_score_in_dict(marker_id, score_update)
 	
 	fill_container(get_node("Control").get_container(container_id))
+	var mark = {
+		"NAME": name,
+		"SCORE": score_update
+	}
+	placed_points.get_or_add(str(marker_id), mark)
 	
 	if counter == 10:
 		emit_signal("game_end")
@@ -266,12 +284,55 @@ func set_score_in_dict(marker_id: int, score: int):
 	GlobalParamsGame.update_score(marker_id, score)
 
 func _on_game_end() -> void:
-	$Fade.show()
-	var tween = get_tree().create_tween()
-	tween.tween_property($Fade, "color", Color(0,0,0,1), 1).finished.connect(func():
-		get_tree().change_scene_to_file("res://menu.tscn")
-	)
+	for child in $Control.get_children():
+		child.hide()
+	show_coll()
+	
+	
 
+
+func show_coll():
+	$Panel.show()
+	var container = $Panel/MarginContainer/VBoxContainer
+	var label = Label.new()
+	label.text = "Platzierte Pins:"
+	container.add_child(label)
+	for id in placed_points:
+			var name = placed_points[str(id)]["NAME"]
+			var score = placed_points[str(id)]["SCORE"]
+			
+			if score != null:
+			
+				var item = MarginContainer.new()
+				item.add_theme_constant_override("margin_left", 10)
+				item.add_theme_constant_override("margin_right", 10)
+				item.add_theme_constant_override("margin_top", 5)
+				item.add_theme_constant_override("margin_bottom", 5)
+
+				var hbox = HBoxContainer.new()
+				
+				var label_name = Label.new()
+				label_name.text = str(name)
+				label_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+
+				var label_score = ProgressBar.new()
+				label_score.min_value = 0
+				label_score.max_value = 10
+				label_score.value = score
+				label_score.fill_mode = 0
+				label_score.custom_minimum_size.x = 150
+				
+				hbox.add_child(label_name)
+				hbox.add_child(label_score)
+				item.add_child(hbox)
+				container.add_child(item)
+				
+	var button = Button.new()
+	button.text = "Spiel abschließen!"
+	button.connect("pressed", _gotomenu)
+	var timer = get_tree().create_timer(2)
+	await timer.timeout
+	container.add_child(button)
 
 func play_pos():
 	$audioplayer.stream = pos_sound
@@ -280,3 +341,10 @@ func play_pos():
 func play_neg():
 	$audioplayer.stream = neg_sound
 	$audioplayer.play()
+
+func _gotomenu():
+	$Fade.show()
+	var tween = get_tree().create_tween()
+	tween.tween_property($Fade, "color", Color(0,0,0,1), 1).finished.connect(func():
+		get_tree().change_scene_to_file("res://menu.tscn")
+	)
