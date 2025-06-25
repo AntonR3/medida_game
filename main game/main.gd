@@ -25,6 +25,11 @@ var json_path_polygons = "res://data/medida_game_data_polygons.json"
 var json_path_lines = "res://data/medida_game_data_lines.json"
 
 func _ready() -> void:
+	$Fade.show()
+	var tween = get_tree().create_tween()
+	tween.tween_property($Fade, "color", Color(0,0,0,0), 1).finished.connect(func():
+		$Fade.hide()
+	)
 	initial_setup()
 	
 func initial_setup():
@@ -35,6 +40,7 @@ func initial_setup():
 	
 	score = 0
 	$Score_Tracker.text = str(score)
+	GlobalParamsGame.save_markers(points, polygons, lines)
 	
 func setup_markers_open_markers():
 	var points_string = FileAccess.get_file_as_string(json_path_points)
@@ -238,7 +244,7 @@ func _on_label_timer_timeout() -> void:
 func set_score_in_dict(marker_id: int, score: int):
 	if marker_id <= 22:
 		if points[str(marker_id)]["SCORE"] != null:
-			if points[str(marker_id)]["SCORE"] < score or points[str(marker_id)]["SCORE"] == null:
+			if points[str(marker_id)]["SCORE"] < score:
 				points[str(marker_id)]["SCORE"] = score
 		else:
 			points[str(marker_id)]["SCORE"] = score	
@@ -257,10 +263,15 @@ func set_score_in_dict(marker_id: int, score: int):
 			lines[str(marker_id)]["SCORE"] = score
 	else:
 		push_error("marker not found in dictionaries")
+	GlobalParamsGame.update_score(marker_id, score)
 
 func _on_game_end() -> void:
-	await get_tree().create_timer(2.0).timeout
-	get_tree().change_scene_to_file("res://menu.tscn")
+	$Fade.show()
+	var tween = get_tree().create_tween()
+	tween.tween_property($Fade, "color", Color(0,0,0,1), 1).finished.connect(func():
+		get_tree().change_scene_to_file("res://menu.tscn")
+	)
+
 
 func play_pos():
 	$audioplayer.stream = pos_sound

@@ -127,6 +127,14 @@ mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 13
 number = 1
 
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+offset_left = -31.0
+offset_top = -35.0
+offset_right = 1966.0
+offset_bottom = 1096.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="game_end" from="." to="." method="_on_game_end"]
 [connection signal="timeout" from="Node/Label_Timer" to="." method="_on_label_timer_timeout"]
 [connection signal="marker_placed" from="SubViewPortContainer/SubViewPort/map" to="." method="_on_marker_placed"]
