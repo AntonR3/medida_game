@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 InputManager="*res://GDTIM-4.x-v2_1_2/InputManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GlobalParamsGame="*res://global_params_game.gd"
 
 [dialogue_manager]
 
