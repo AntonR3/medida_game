@@ -1,6 +1,7 @@
 extends Control
 	
 func _ready() -> void:
+	$AnimationPlayer.play("background")
 	$VBoxContainer/Collectibles.show()
 	$Panel.hide()
 	
