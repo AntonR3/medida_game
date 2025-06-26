@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ivho25spx00"]
+[gd_scene load_steps=4 format=3 uid="uid://ivho25spx00"]
 
 [ext_resource type="Script" uid="uid://bq0rdkluexcwl" path="res://margin_container.gd" id="1_1uojp"]
 [ext_resource type="Texture2D" uid="uid://cst2mp2sal024" path="res://loc_icon.svg" id="2_1uojp"]
 [ext_resource type="Script" uid="uid://dsll55dnxg1in" path="res://color_rect.gd" id="2_ewgtj"]
-[ext_resource type="FontFile" uid="uid://bsttmh3614hhp" path="res://assets/SpaceGames-K7zKD.otf" id="4_qjuy0"]
 
 [node name="MarginContainer" type="MarginContainer"]
 offset_right = 600.0
@@ -43,8 +42,6 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("4_qjuy0")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 42
 text = "Begriff"
 horizontal_alignment = 1
-autowrap_mode = 1
