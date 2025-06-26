@@ -1,10 +1,10 @@
 [gd_scene load_steps=33 format=3 uid="uid://dl0rmioafiuw3"]
 
-[ext_resource type="Texture2D" uid="uid://dj72ijtcs6b6w" path="res://assets/cockpit.svg" id="1_7y43c"]
 [ext_resource type="Script" uid="uid://chfw1ggnuq8p3" path="res://intro_anim/intro_cutscene.gd" id="1_p1a33"]
 [ext_resource type="Texture2D" uid="uid://vc4rv4h0hgyr" path="res://assets/speechbubble.svg" id="2_dyuqh"]
 [ext_resource type="Texture2D" uid="uid://bi45jp7cigws2" path="res://assets/Sternenhimmel.svg" id="3_gj0ma"]
 [ext_resource type="Texture2D" uid="uid://c0khphyva7irn" path="res://assets/Raumschiff.svg" id="3_p1a33"]
+[ext_resource type="Texture2D" uid="uid://di4gdoa7fgj4m" path="res://assets/transparentcockpit.svg" id="3_ywm83"]
 [ext_resource type="Texture2D" uid="uid://7gps3hm4v5sw" path="res://assets/traktorstrahl.svg" id="4_3rs70"]
 [ext_resource type="Texture2D" uid="uid://ddxbmewfit4id" path="res://assets/ufo_außen.svg" id="5_461ob"]
 [ext_resource type="Texture2D" uid="uid://18v8le1mu2vd" path="res://assets/lilaastronaut.svg" id="5_ywm83"]
@@ -223,6 +223,18 @@ tracks/16/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.973564, 0.973564), Vector2(0.973564, 0.973564)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Sternenhimmel:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1000, 321)]
 }
 
 [sub_resource type="Animation" id="Animation_g1gpk"]
@@ -1628,7 +1640,7 @@ texture = ExtResource("3_gj0ma")
 [node name="Cockpit" type="Sprite2D" parent="Astronaut_Cockpit"]
 position = Vector2(573, 337)
 scale = Vector2(0.32, 0.32)
-texture = ExtResource("1_7y43c")
+texture = ExtResource("3_ywm83")
 
 [node name="Lilaastronaut" type="Sprite2D" parent="Astronaut_Cockpit/Cockpit"]
 position = Vector2(5352.71, 1668.58)
