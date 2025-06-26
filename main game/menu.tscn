@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnug6bc81f0of"]
+[gd_scene load_steps=10 format=3 uid="uid://dnug6bc81f0of"]
 
 [ext_resource type="Texture2D" uid="uid://bi45jp7cigws2" path="res://assets/Sternenhimmel.svg" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://qsw6houttfqo" path="res://menu.gd" id="1_ouk20"]
 [ext_resource type="AudioStream" uid="uid://docmp7cuogv2p" path="res://menu.wav" id="3_mae5d"]
+[ext_resource type="FontFile" uid="uid://bsttmh3614hhp" path="res://assets/SpaceGames-K7zKD.otf" id="3_ytr4m"]
 [ext_resource type="Texture2D" uid="uid://cenm568kd15gx" path="res://exit_icon.png" id="4_4hy44"]
 
 [sub_resource type="Animation" id="Animation_mae5d"]
@@ -159,22 +160,19 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-layout_mode = 2
-text = "TopoPro"
-fit_content = true
-horizontal_alignment = 1
-
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ytr4m")
 text = "Start"
 
 [node name="Collectibles" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ytr4m")
 text = "Collectibles"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ytr4m")
 text = "Exit"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -192,6 +190,7 @@ volume_db = -6.013
 autoplay = true
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -226,6 +225,25 @@ offset_bottom = 40.0
 grow_horizontal = 0
 icon = ExtResource("4_4hy44")
 flat = true
+
+[node name="TextEdit" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -190.5
+offset_right = 240.0
+offset_bottom = -53.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ytr4m")
+theme_override_font_sizes/font_size = 100
+text = "TOPOPRO"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Collectibles" to="." method="_on_collectibles_pressed"]
